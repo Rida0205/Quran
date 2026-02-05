@@ -359,45 +359,26 @@
             font-weight: 600;
         }
 
-        /* صفحة القرآن */
-        .quran-page {
-            padding: 60px 0;
-            min-height: 70vh;
+        /* الصفحات المخفية */
+        .hidden-page {
+            display: none;
         }
 
-        .quran-header {
-            background: var(--quran-gradient);
-            color: white;
-            padding: 50px 0;
-            border-radius: var(--border-radius);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .quran-header h1 {
-            color: white;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
-
-        .quran-header .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* صفحة الصفحات */
-        .pages-container {
+        /* قائمة السور */
+        .surah-list-container {
             background-color: #f8f5e6;
+            min-height: 100vh;
+            padding: 100px 0 60px;
         }
 
-        .pages-grid {
+        .surah-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
 
-        .page-card {
+        .surah-card {
             background-color: white;
             border-radius: var(--border-radius);
             padding: 25px;
@@ -407,57 +388,53 @@
             border: 1px solid var(--light-gray);
             text-align: center;
             cursor: pointer;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
-        .page-card:hover {
+        .surah-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .page-number {
+        .surah-number {
             display: inline-block;
             background: var(--primary-color);
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             margin-bottom: 15px;
         }
 
-        .juz-badge {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 10px;
+        .surah-name {
+            font-size: 1.5rem;
+            font-family: 'Amiri', serif;
+            color: var(--dark-color);
+            margin-bottom: 10px;
         }
 
-        .page-info {
+        .surah-info {
+            display: flex;
+            justify-content: space-between;
             color: var(--gray-color);
             font-size: 0.9rem;
-            margin-top: 10px;
-            line-height: 1.5;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-gray);
         }
 
-        /* صفحة تفاصيل الصفحة */
-        .page-detail {
+        /* صفحة السورة */
+        .surah-detail-container {
             background-color: #f8f5e6;
             min-height: 100vh;
             padding: 100px 0 60px;
         }
 
-        .page-detail-header {
+        .surah-header {
             background: var(--quran-gradient);
             color: white;
             padding: 40px;
@@ -466,13 +443,14 @@
             text-align: center;
         }
 
-        .page-detail-header h1 {
+        .surah-header h1 {
             color: white;
             font-size: 2.5rem;
+            font-family: 'Amiri', serif;
             margin-bottom: 15px;
         }
 
-        .page-stats {
+        .surah-header-info {
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -480,38 +458,74 @@
             margin-top: 20px;
         }
 
-        .page-stats span {
+        .surah-header-info span {
             background-color: rgba(255, 255, 255, 0.2);
             padding: 8px 20px;
             border-radius: 20px;
             font-size: 0.9rem;
         }
 
-        /* آيات القرآن */
-        .ayahs-container {
+        /* التفسير */
+        .tafseer-container {
             background-color: white;
-            padding: 40px;
             border-radius: var(--border-radius);
+            padding: 30px;
             box-shadow: var(--box-shadow);
-            line-height: 1.8;
-            font-size: 1.1rem;
-            border: 1px solid var(--light-gray);
-            margin-bottom: 40px;
+            margin-top: 30px;
         }
 
-        .ayah-group {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
+        .tafseer-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tafseer-tab {
+            padding: 10px 20px;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .tafseer-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        .tafseer-tab:hover:not(.active) {
+            background-color: var(--accent-light);
+        }
+
+        .tafseer-content {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius);
+            border-right: 3px solid var(--accent-color);
+        }
+
+        .tafseer-ayah {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
             border-bottom: 1px solid var(--light-gray);
         }
 
-        .surah-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            font-family: 'Amiri', serif;
-            padding-right: 15px;
-            border-right: 4px solid var(--accent-color);
+        .tafseer-ayah:last-child {
+            border-bottom: none;
+        }
+
+        /* آيات القرآن */
+        .ayahs-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 40px;
         }
 
         .ayah {
@@ -519,9 +533,9 @@
             font-size: 2rem;
             line-height: 2.5;
             text-align: justify;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             color: var(--dark-color);
-            padding: 20px;
+            padding: 25px;
             border-radius: var(--border-radius);
             background-color: #fefefe;
             position: relative;
@@ -549,27 +563,6 @@
             font-family: 'Cairo', sans-serif;
             font-weight: bold;
             box-shadow: 0 3px 10px rgba(26, 95, 75, 0.2);
-        }
-
-        .ayah-text {
-            padding-left: 50px;
-            display: block;
-        }
-
-        .ayah-info {
-            font-size: 0.9rem;
-            color: var(--gray-color);
-            margin-top: 10px;
-            padding-right: 15px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .ayah-info span {
-            background-color: var(--light-gray);
-            padding: 5px 12px;
-            border-radius: 15px;
         }
 
         /* أدوات التحكم */
@@ -604,7 +597,6 @@
             align-items: center;
             gap: 8px;
             font-family: 'Cairo', sans-serif;
-            font-weight: 600;
         }
 
         .control-btn:hover {
@@ -720,8 +712,8 @@
                 padding: 60px 0;
             }
             
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            .surah-list {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
             .ayah {
@@ -763,20 +755,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 15px;
-            }
-            
-            .page-card {
-                padding: 20px;
-                min-height: 180px;
-            }
-            
-            .page-number {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
+            .surah-list {
+                grid-template-columns: 1fr;
             }
             
             .controls {
@@ -790,7 +770,7 @@
             
             .ayah {
                 font-size: 1.6rem;
-                padding: 15px;
+                padding: 20px;
             }
             
             .ayah-number {
@@ -798,15 +778,9 @@
                 height: 30px;
                 line-height: 30px;
                 font-size: 0.9rem;
-                left: 10px;
-                top: 10px;
             }
             
-            .ayah-text {
-                padding-left: 40px;
-            }
-            
-            .page-detail-header h1 {
+            .surah-header h1 {
                 font-size: 2rem;
             }
         }
@@ -843,25 +817,17 @@
                 font-size: 1.6rem;
             }
             
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            .surah-card {
+                padding: 20px;
             }
             
-            .page-card {
-                padding: 15px;
-                min-height: 160px;
-            }
-            
-            .page-number {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
+            .surah-name {
+                font-size: 1.3rem;
             }
             
             .ayah {
                 font-size: 1.4rem;
-                line-height: 2;
-                padding: 12px;
+                padding: 15px;
             }
             
             .ayah-number {
@@ -871,34 +837,16 @@
                 font-size: 0.8rem;
             }
             
-            .ayah-text {
-                padding-left: 35px;
-            }
-            
-            .ayah-info {
-                font-size: 0.8rem;
-                gap: 8px;
-            }
-            
-            .ayah-info span {
-                padding: 4px 10px;
-            }
-            
-            .page-detail-header {
+            .surah-header {
                 padding: 30px 20px;
             }
             
-            .page-detail-header h1 {
+            .surah-header h1 {
                 font-size: 1.8rem;
             }
             
-            .page-stats {
-                gap: 10px;
-            }
-            
-            .page-stats span {
-                padding: 6px 15px;
-                font-size: 0.85rem;
+            .tafseer-selector {
+                flex-direction: column;
             }
         }
 
@@ -907,32 +855,20 @@
                 font-size: 1.5rem;
             }
             
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-                gap: 12px;
-            }
-            
-            .page-card {
-                min-height: 150px;
+            .surah-header h1 {
+                font-size: 1.6rem;
             }
             
             .ayah {
                 font-size: 1.3rem;
-                line-height: 1.9;
-            }
-            
-            .surah-title {
-                font-size: 1.5rem;
+                line-height: 2;
             }
         }
 
         @media (max-width: 360px) {
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            }
-            
             .ayah {
                 font-size: 1.2rem;
+                line-height: 1.9;
             }
         }
     </style>
@@ -974,16 +910,16 @@
                 <p class="section-subtitle">استكشف القرآن الكريم من خلال أقسام متخصصة</p>
             </div>
             <div class="sections-grid">
-                <a href="#" class="section-card" onclick="loadPagesView()">
+                <a href="#" class="section-card" onclick="loadSurahList()">
                     <div class="section-icon">
-                        <i class="fas fa-book-open"></i>
+                        <i class="fas fa-quran"></i>
                     </div>
-                    <h3>صفحات المصحف</h3>
-                    <p>تصفح القرآن الكريم صفحة صفحة مع الآيات</p>
-                    <span class="section-count">٦٠٤ صفحة</span>
+                    <h3>السور القرآنية</h3>
+                    <p>تصفح سور القرآن الكريم بالترتيب مع آياتها</p>
+                    <span class="section-count">١١٤ سورة</span>
                 </a>
                 
-                <a href="#" class="section-card" onclick="loadJuzView()">
+                <a href="#" class="section-card" onclick="showComingSoon('الأجزاء')">
                     <div class="section-icon">
                         <i class="fas fa-layer-group"></i>
                     </div>
@@ -992,20 +928,20 @@
                     <span class="section-count">٣٠ جزء</span>
                 </a>
                 
-                <a href="#" class="section-card" onclick="loadSurahView()">
+                <a href="#" class="section-card" onclick="showComingSoon('التفسير')">
                     <div class="section-icon">
-                        <i class="fas fa-quran"></i>
+                        <i class="fas fa-book-open"></i>
                     </div>
-                    <h3>السور</h3>
-                    <p>تصفح سور القرآن الكريم بالترتيب</p>
-                    <span class="section-count">١١٤ سورة</span>
+                    <h3>كتب التفسير</h3>
+                    <p>استكشاف تفاسير القرآن للعلماء المعتمدين</p>
+                    <span class="section-count">٩ تفاسير</span>
                 </a>
                 
-                <a href="#" class="section-card" onclick="showComingSoon('البحث في القرآن')">
+                <a href="#" class="section-card" onclick="showComingSoon('البحث')">
                     <div class="section-icon">
                         <i class="fas fa-search"></i>
                     </div>
-                    <h3>البحث</h3>
+                    <h3>البحث في القرآن</h3>
                     <p>ابحث في آيات القرآن الكريم بكلمات أو مواضيع</p>
                     <span class="section-count">متقدم</span>
                 </a>
@@ -1013,31 +949,47 @@
         </div>
     </section>
 
-    <!-- صفحات القرآن -->
-    <div id="pagesView" style="display: none;">
-        <section class="section pages-container">
+    <!-- صفحة قائمة السور -->
+    <div id="surahListPage" class="hidden-page">
+        <section class="surah-list-container">
             <div class="container">
                 <div class="controls">
-                    <button class="control-btn" onclick="loadHomeView()">
+                    <button class="control-btn" onclick="loadHomePage()">
                         <i class="fas fa-arrow-right"></i> العودة للرئيسية
                     </button>
-                    <h3 style="margin: 0;">صفحات المصحف الشريف</h3>
+                    <h3 style="margin: 0;">سور القرآن الكريم</h3>
                     <div class="control-group">
-                        <button class="control-btn" onclick="loadJuzView()">
-                            <i class="fas fa-layer-group"></i> حسب الجزء
-                        </button>
-                        <button class="control-btn" onclick="loadSurahView()">
-                            <i class="fas fa-quran"></i> حسب السورة
+                        <button class="control-btn" onclick="loadSurahList()">
+                            <i class="fas fa-sync-alt"></i> تحديث
                         </button>
                     </div>
                 </div>
-                
-                <div class="stats-container" id="statsContainer"></div>
-                
-                <div class="pages-grid" id="pagesGrid"></div>
-                
+
+                <div class="stats-container" id="surahStats">
+                    <div class="stat-card">
+                        <div class="stat-number">١١٤</div>
+                        <div class="stat-label">عدد السور</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">٦٢٣٦</div>
+                        <div class="stat-label">عدد الآيات</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">٣٠</div>
+                        <div class="stat-label">عدد الأجزاء</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">٦٠٤</div>
+                        <div class="stat-label">عدد الصفحات</div>
+                    </div>
+                </div>
+
+                <div class="surah-list" id="surahListContent">
+                    <!-- سيتم ملؤه بالبيانات -->
+                </div>
+
                 <div style="text-align: center; margin-top: 50px;">
-                    <button class="back-link" onclick="loadHomeView()">
+                    <button class="back-link" onclick="loadHomePage()">
                         <i class="fas fa-arrow-right"></i> العودة للرئيسية
                     </button>
                 </div>
@@ -1045,25 +997,36 @@
         </section>
     </div>
 
-    <!-- صفحة تفاصيل الصفحة -->
-    <div id="pageDetailView" style="display: none;">
-        <section class="page-detail">
+    <!-- صفحة تفاصيل السورة -->
+    <div id="surahDetailPage" class="hidden-page">
+        <section class="surah-detail-container">
             <div class="container">
                 <div class="controls">
-                    <button class="control-btn" onclick="loadPagesView()">
-                        <i class="fas fa-arrow-right"></i> العودة للصفحات
+                    <button class="control-btn" onclick="loadSurahList()">
+                        <i class="fas fa-arrow-right"></i> العودة للسور
                     </button>
-                    <h3 style="margin: 0;" id="pageDetailTitle"></h3>
-                    <div class="control-group" id="pageNavigation"></div>
+                    <h3 style="margin: 0;" id="surahDetailTitle"></h3>
+                    <div class="control-group" id="surahNavigation"></div>
                 </div>
-                
-                <div class="page-detail-header" id="pageDetailHeader"></div>
-                
-                <div class="ayahs-container" id="ayahsContainer"></div>
-                
+
+                <div class="surah-header" id="surahHeader">
+                    <!-- سيتم ملؤه بالبيانات -->
+                </div>
+
+                <div class="ayahs-container" id="ayahsContainer">
+                    <!-- سيتم ملؤه بالآيات -->
+                </div>
+
+                <!-- قسم التفسير -->
+                <div class="tafseer-container" id="tafseerSection" style="display: none;">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-color);">تفسير السورة</h3>
+                    <div class="tafseer-selector" id="tafseerTabs"></div>
+                    <div class="tafseer-content" id="tafseerContent"></div>
+                </div>
+
                 <div style="text-align: center; margin-top: 40px;">
-                    <button class="back-link" onclick="loadPagesView()">
-                        <i class="fas fa-arrow-right"></i> العودة لقائمة الصفحات
+                    <button class="back-link" onclick="loadSurahList()">
+                        <i class="fas fa-arrow-right"></i> العودة لقائمة السور
                     </button>
                 </div>
             </div>
@@ -1076,103 +1039,30 @@
     </div>
 
     <script>
-        // بيانات التطبيق
-        let quranData = [];
-        let pagesData = [];
-        let surahsData = [];
-        let juzData = [];
-        
         // حالة التطبيق
-        let currentView = 'home';
-        let currentPage = 1;
-        let totalPages = 0;
+        const appState = {
+            currentSurah: null,
+            surahsData: [],
+            currentTafseer: 'muyassar',
+            tafaseer: {
+                'muyassar': { name: 'التفسير الميسر', file: 'ar_muyassar.json' },
+                'sa3dy': { name: 'تفسير السعدي', file: 'sa3dy.json' },
+                'katheer': { name: 'تفسير ابن كثير', file: 'katheer.json' },
+                'tabary': { name: 'تفسير الطبري', file: 'tabary.json' },
+                'qortoby': { name: 'تفسير القرطبي', file: 'qortoby.json' },
+                'baghawy': { name: 'تفسير البغوي', file: 'baghawy.json' },
+                'waseet': { name: 'التفسير الوسيط', file: 'waseet.json' },
+                'e3rab': { name: 'إعراب القرآن', file: 'e3rab.json' },
+                'ar_ma3any': { name: 'معاني الكلمات', file: 'ar_ma3any.json' }
+            }
+        };
 
         // تهيئة التطبيق
         document.addEventListener('DOMContentLoaded', async function() {
-            await loadQuranData();
             setupEventListeners();
+            await loadSurahsMetadata();
         });
-        
-        // تحميل بيانات القرآن
-        async function loadQuranData() {
-            try {
-                // تحميل البيانات من data.json
-                const response = await fetch('/data.json');
-                quranData = await response.json();
-                
-                // معالجة البيانات
-                processQuranData();
-                
-                console.log('تم تحميل بيانات القرآن:', quranData.length, 'آية');
-            } catch (error) {
-                console.error('خطأ في تحميل البيانات:', error);
-                showError('حدث خطأ في تحميل بيانات القرآن الكريم');
-            }
-        }
-        
-        // معالجة بيانات القرآن
-        function processQuranData() {
-            if (quranData.length === 0) return;
-            
-            // استخراج معلومات الصفحات
-            const pages = [...new Set(quranData.map(item => parseInt(item.page)))].sort((a, b) => a - b);
-            totalPages = pages.length;
-            
-            pagesData = pages.map(page => {
-                const pageAyahs = quranData.filter(item => parseInt(item.page) === page);
-                const surahsInPage = [...new Set(pageAyahs.map(item => ({
-                    number: item.sura_no,
-                    name: item.sura_name_ar,
-                    name_en: item.sura_name_en
-                })))];
-                
-                const juz = pageAyahs[0]?.jozz || 1;
-                
-                return {
-                    page,
-                    juz,
-                    ayahsCount: pageAyahs.length,
-                    surahs: surahsInPage,
-                    startSurah: surahsInPage[0]?.name || '',
-                    endSurah: surahsInPage[surahsInPage.length - 1]?.name || ''
-                };
-            });
-            
-            // استخراج معلومات السور
-            const surahs = [...new Set(quranData.map(item => item.sura_no))].sort((a, b) => a - b);
-            surahsData = surahs.map(surahNumber => {
-                const surahAyahs = quranData.filter(item => item.sura_no === surahNumber);
-                const firstAyah = surahAyahs[0];
-                
-                return {
-                    number: surahNumber,
-                    name_ar: firstAyah?.sura_name_ar || '',
-                    name_en: firstAyah?.sura_name_en || '',
-                    ayahsCount: surahAyahs.length,
-                    juz: firstAyah?.jozz || 1,
-                    pages: [...new Set(surahAyahs.map(item => parseInt(item.page)))].sort((a, b) => a - b)
-                };
-            });
-            
-            // استخراج معلومات الأجزاء
-            const juzs = [...new Set(quranData.map(item => item.jozz))].sort((a, b) => a - b);
-            juzData = juzs.map(juz => {
-                const juzAyahs = quranData.filter(item => item.jozz === juz);
-                const pagesInJuz = [...new Set(juzAyahs.map(item => parseInt(item.page)))].sort((a, b) => a - b);
-                
-                return {
-                    juz,
-                    ayahsCount: juzAyahs.length,
-                    pagesCount: pagesInJuz.length,
-                    pages: pagesInJuz,
-                    surahs: [...new Set(juzAyahs.map(item => ({
-                        number: item.sura_no,
-                        name: item.sura_name_ar
-                    })))]
-                };
-            });
-        }
-        
+
         // إعداد مستمعي الأحداث
         function setupEventListeners() {
             // زر العودة للأعلى
@@ -1215,461 +1105,272 @@
                 });
             });
         }
-        
-        // تحميل العرض الرئيسي
-        function loadHomeView() {
+
+        // تحميل بيانات السور من ملف surah.json
+        async function loadSurahsMetadata() {
+            try {
+                const response = await fetch('quran_metadata/surah.json');
+                const data = await response.json();
+                appState.surahsData = data;
+                console.log('تم تحميل بيانات السور:', appState.surahsData.length);
+            } catch (error) {
+                console.error('خطأ في تحميل بيانات السور:', error);
+            }
+        }
+
+        // تحميل بيانات سورة معينة
+        async function loadSurahData(surahNumber) {
+            try {
+                const response = await fetch(`Quran_Suras/surah_${surahNumber}.json`);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error(`خطأ في تحميل سورة ${surahNumber}:`, error);
+                return null;
+            }
+        }
+
+        // تحميل بيانات التفسير
+        async function loadTafseerData(surahNumber, tafseerName) {
+            try {
+                const tafseer = appState.tafaseer[tafseerName];
+                if (!tafseer) return [];
+                
+                const response = await fetch(`Tafaseer/${tafseer.file}`);
+                const data = await response.json();
+                
+                // تصفية بيانات السورة المطلوبة
+                return data.filter(item => item.sura === surahNumber);
+            } catch (error) {
+                console.error(`خطأ في تحميل تفسير ${tafseerName}:`, error);
+                return [];
+            }
+        }
+
+        // تحميل الصفحة الرئيسية
+        function loadHomePage() {
             document.getElementById('heroSection').style.display = 'block';
             document.getElementById('sections').style.display = 'block';
-            document.getElementById('pagesView').style.display = 'none';
-            document.getElementById('pageDetailView').style.display = 'none';
+            document.getElementById('surahListPage').style.display = 'none';
+            document.getElementById('surahDetailPage').style.display = 'none';
             
-            currentView = 'home';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        
-        // تحميل عرض الصفحات
-        function loadPagesView() {
+
+        // تحميل قائمة السور
+        async function loadSurahList() {
             document.getElementById('heroSection').style.display = 'none';
             document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'block';
-            document.getElementById('pageDetailView').style.display = 'none';
+            document.getElementById('surahListPage').style.display = 'block';
+            document.getElementById('surahDetailPage').style.display = 'none';
+
+            const surahListContent = document.getElementById('surahListContent');
             
-            renderPagesView();
-            currentView = 'pages';
+            if (appState.surahsData.length === 0) {
+                await loadSurahsMetadata();
+            }
+
+            // ترتيب السور حسب الترتيب في المصحف
+            const sortedSurahs = [...appState.surahsData].sort((a, b) => a.index - b.index);
+            
+            surahListContent.innerHTML = sortedSurahs.map(surah => `
+                <div class="surah-card" onclick="loadSurahDetail(${surah.index})">
+                    <div class="surah-number">${surah.index}</div>
+                    <div class="surah-name">${surah.titleAr}</div>
+                    <div style="color: var(--gray-color); margin-bottom: 10px;">${surah.titleEn}</div>
+                    <div class="surah-info">
+                        <span>${surah.count} آية</span>
+                        <span>${surah.type === 'makkah' ? 'مكية' : 'مدنية'}</span>
+                        <span>الجزء ${surah.juz[0].index}</span>
+                    </div>
+                </div>
+            `).join('');
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        
-        // عرض الصفحات
-        function renderPagesView() {
-            if (pagesData.length === 0) {
-                showError('البيانات غير متوفرة');
-                return;
-            }
-            
-            // عرض الإحصائيات
-            const statsContainer = document.getElementById('statsContainer');
-            statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${totalPages}</div>
-                    <div class="stat-label">عدد الصفحات</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${juzData.length}</div>
-                    <div class="stat-label">عدد الأجزاء</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${surahsData.length}</div>
-                    <div class="stat-label">عدد السور</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${quranData.length.toLocaleString()}</div>
-                    <div class="stat-label">عدد الآيات</div>
-                </div>
-            `;
-            
-            // عرض الصفحات
-            const pagesGrid = document.getElementById('pagesGrid');
-            pagesGrid.innerHTML = pagesData.map(page => {
-                const surahsText = page.surahs.length > 2 
-                    ? `سور: ${page.surahs[0].name}...` 
-                    : page.surahs.map(s => s.name).join('، ');
-                
-                return `
-                    <div class="page-card" onclick="loadPageDetail(${page.page})">
-                        <div class="page-number">${page.page}</div>
-                        <div class="juz-badge">الجزء ${page.juz}</div>
-                        <div class="page-info">
-                            ${surahsText}<br>
-                            ${page.ayahsCount} آية
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-        
-        // تحميل عرض الأجزاء
-        function loadJuzView() {
-            if (juzData.length === 0) {
-                showError('البيانات غير متوفرة');
-                return;
-            }
-            
+
+        // تحميل تفاصيل السورة
+        async function loadSurahDetail(surahNumber) {
             document.getElementById('heroSection').style.display = 'none';
             document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'block';
-            document.getElementById('pageDetailView').style.display = 'none';
-            
+            document.getElementById('surahListPage').style.display = 'none';
+            document.getElementById('surahDetailPage').style.display = 'block';
+
+            const surahMetadata = appState.surahsData.find(s => s.index === surahNumber);
+            if (!surahMetadata) return;
+
+            // تحميل بيانات السورة
+            const surahData = await loadSurahData(surahNumber);
+            if (!surahData) return;
+
+            appState.currentSurah = { ...surahMetadata, ...surahData };
+
             // تحديث العنوان
-            const pagesView = document.getElementById('pagesView');
-            const title = pagesView.querySelector('h3');
-            if (title) title.textContent = 'أجزاء القرآن الكريم';
-            
-            // عرض الإحصائيات
-            const statsContainer = document.getElementById('statsContainer');
-            statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${juzData.length}</div>
-                    <div class="stat-label">عدد الأجزاء</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${totalPages}</div>
-                    <div class="stat-label">عدد الصفحات</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${surahsData.length}</div>
-                    <div class="stat-label">عدد السور</div>
-                </div>
-            `;
-            
-            // عرض الأجزاء
-            const pagesGrid = document.getElementById('pagesGrid');
-            pagesGrid.innerHTML = juzData.map(juz => {
-                const surahsText = juz.surahs.length > 3 
-                    ? `${juz.surahs.length} سورة` 
-                    : juz.surahs.map(s => s.name).join('، ');
-                
-                return `
-                    <div class="page-card" onclick="loadJuzPages(${juz.juz})">
-                        <div class="page-number">${juz.juz}</div>
-                        <div style="font-weight: bold; font-size: 1.1rem; margin-bottom: 5px;">
-                            الجزء ${juz.juz}
-                        </div>
-                        <div class="page-info">
-                            ${juz.pagesCount} صفحة<br>
-                            ${juz.ayahsCount.toLocaleString()} آية<br>
-                            ${surahsText}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // تحديث أزرار التحكم
-            const controlGroup = document.querySelector('.control-group');
-            if (controlGroup) {
-                controlGroup.innerHTML = `
-                    <button class="control-btn" onclick="loadPagesView()">
-                        <i class="fas fa-book-open"></i> حسب الصفحات
-                    </button>
-                    <button class="control-btn" onclick="loadSurahView()">
-                        <i class="fas fa-quran"></i> حسب السورة
-                    </button>
-                `;
-            }
-            
-            currentView = 'juz';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // تحميل صفحات الجزء
-        function loadJuzPages(juzNumber) {
-            const juz = juzData.find(j => j.juz === juzNumber);
-            if (!juz) return;
-            
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'block';
-            document.getElementById('pageDetailView').style.display = 'none';
-            
-            // تحديث العنوان
-            const pagesView = document.getElementById('pagesView');
-            const title = pagesView.querySelector('h3');
-            if (title) title.textContent = `صفحات الجزء ${juzNumber}`;
-            
-            // عرض الإحصائيات
-            const statsContainer = document.getElementById('statsContainer');
-            statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${juz.pagesCount}</div>
-                    <div class="stat-label">عدد الصفحات</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${juz.ayahsCount.toLocaleString()}</div>
-                    <div class="stat-label">عدد الآيات</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${juz.surahs.length}</div>
-                    <div class="stat-label">عدد السور</div>
-                </div>
-            `;
-            
-            // عرض صفحات الجزء
-            const pagesGrid = document.getElementById('pagesGrid');
-            pagesGrid.innerHTML = juz.pages.map(pageNumber => {
-                const page = pagesData.find(p => p.page === pageNumber);
-                if (!page) return '';
-                
-                const surahsText = page.surahs.length > 2 
-                    ? `سور: ${page.surahs[0].name}...` 
-                    : page.surahs.map(s => s.name).join('، ');
-                
-                return `
-                    <div class="page-card" onclick="loadPageDetail(${page.page})">
-                        <div class="page-number">${page.page}</div>
-                        <div class="juz-badge">الجزء ${page.juz}</div>
-                        <div class="page-info">
-                            ${surahsText}<br>
-                            ${page.ayahsCount} آية
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // تحديث أزرار التحكم
-            const controlGroup = document.querySelector('.control-group');
-            if (controlGroup) {
-                controlGroup.innerHTML = `
-                    <button class="control-btn" onclick="loadJuzView()">
-                        <i class="fas fa-arrow-right"></i> العودة للأجزاء
-                    </button>
-                    ${juzNumber > 1 ? `
-                        <button class="control-btn" onclick="loadJuzPages(${juzNumber - 1})">
-                            <i class="fas fa-arrow-left"></i> الجزء السابق
-                        </button>
-                    ` : ''}
-                    ${juzNumber < 30 ? `
-                        <button class="control-btn" onclick="loadJuzPages(${juzNumber + 1})">
-                            الجزء التالي <i class="fas fa-arrow-right"></i>
-                        </button>
-                    ` : ''}
-                `;
-            }
-        }
-        
-        // تحميل عرض السور
-        function loadSurahView() {
-            if (surahsData.length === 0) {
-                showError('البيانات غير متوفرة');
-                return;
-            }
-            
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'block';
-            document.getElementById('pageDetailView').style.display = 'none';
-            
-            // تحديث العنوان
-            const pagesView = document.getElementById('pagesView');
-            const title = pagesView.querySelector('h3');
-            if (title) title.textContent = 'سور القرآن الكريم';
-            
-            // عرض الإحصائيات
-            const statsContainer = document.getElementById('statsContainer');
-            statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${surahsData.length}</div>
-                    <div class="stat-label">عدد السور</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${quranData.length.toLocaleString()}</div>
-                    <div class="stat-label">عدد الآيات</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${totalPages}</div>
-                    <div class="stat-label">عدد الصفحات</div>
-                </div>
-            `;
-            
-            // عرض السور
-            const pagesGrid = document.getElementById('pagesGrid');
-            pagesGrid.innerHTML = surahsData.map(surah => {
-                return `
-                    <div class="page-card" onclick="loadSurahAyahs(${surah.number})">
-                        <div class="page-number">${surah.number}</div>
-                        <div style="font-weight: bold; font-size: 1.1rem; margin-bottom: 5px;">
-                            ${surah.name_ar}
-                        </div>
-                        <div style="color: var(--gray-color); font-size: 0.9rem; margin-bottom: 5px;">
-                            ${surah.name_en}
-                        </div>
-                        <div class="page-info">
-                            ${surah.ayahsCount} آية<br>
-                            ${surah.pages.length} صفحة<br>
-                            الجزء ${surah.juz}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // تحديث أزرار التحكم
-            const controlGroup = document.querySelector('.control-group');
-            if (controlGroup) {
-                controlGroup.innerHTML = `
-                    <button class="control-btn" onclick="loadPagesView()">
-                        <i class="fas fa-book-open"></i> حسب الصفحات
-                    </button>
-                    <button class="control-btn" onclick="loadJuzView()">
-                        <i class="fas fa-layer-group"></i> حسب الجزء
-                    </button>
-                `;
-            }
-            
-            currentView = 'surah';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // تحميل آيات السورة
-        function loadSurahAyahs(surahNumber) {
-            const surahAyahs = quranData.filter(item => item.sura_no === surahNumber);
-            if (surahAyahs.length === 0) return;
-            
-            const surah = surahsData.find(s => s.number === surahNumber);
-            if (!surah) return;
-            
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'none';
-            document.getElementById('pageDetailView').style.display = 'block';
-            
-            // تحديث العنوان
-            document.getElementById('pageDetailTitle').textContent = `سورة ${surah.name_ar}`;
-            
+            document.getElementById('surahDetailTitle').textContent = `سورة ${surahMetadata.titleAr}`;
+
             // تحديث رأس الصفحة
-            document.getElementById('pageDetailHeader').innerHTML = `
-                <h1>سورة ${surah.name_ar}</h1>
-                <div style="font-size: 1.2rem; margin-bottom: 10px;">${surah.name_en}</div>
-                <div class="page-stats">
-                    <span>${surah.ayahsCount} آية</span>
-                    <span>${surah.pages.length} صفحة</span>
-                    <span>الجزء ${surah.juz}</span>
+            document.getElementById('surahHeader').innerHTML = `
+                <h1>سورة ${surahMetadata.titleAr}</h1>
+                <div style="font-size: 1.2rem; margin-bottom: 10px;">${surahMetadata.titleEn}</div>
+                <div class="surah-header-info">
+                    <span>عدد الآيات: ${surahMetadata.count}</span>
+                    <span>${surahMetadata.type === 'makkah' ? 'مكية' : 'مدنية'}</span>
+                    <span>الجزء ${surahMetadata.juz[0].index}</span>
+                    <span>الصفحة ${surahMetadata.page}</span>
                 </div>
             `;
-            
+
             // تحديث أزرار التنقل
-            document.getElementById('pageNavigation').innerHTML = `
+            document.getElementById('surahNavigation').innerHTML = `
                 ${surahNumber > 1 ? `
-                    <button class="control-btn" onclick="loadSurahAyahs(${surahNumber - 1})">
+                    <button class="control-btn" onclick="loadSurahDetail(${surahNumber - 1})">
                         <i class="fas fa-arrow-left"></i> السورة السابقة
                     </button>
                 ` : ''}
-                <button class="control-btn" onclick="loadSurahView()">
-                    <i class="fas fa-arrow-right"></i> العودة للسور
+                <button class="control-btn" onclick="toggleTafseer()">
+                    <i class="fas fa-book-open"></i> التفسير
                 </button>
                 ${surahNumber < 114 ? `
-                    <button class="control-btn" onclick="loadSurahAyahs(${surahNumber + 1})">
+                    <button class="control-btn" onclick="loadSurahDetail(${surahNumber + 1})">
                         السورة التالية <i class="fas fa-arrow-right"></i>
                     </button>
                 ` : ''}
             `;
-            
+
             // عرض الآيات
-            const ayahsContainer = document.getElementById('ayahsContainer');
-            ayahsContainer.innerHTML = `
-                <div class="ayah-group">
-                    <div class="surah-title">سورة ${surah.name_ar} - ${surah.name_en}</div>
-                    ${surahAyahs.map(ayah => `
-                        <div class="ayah" id="ayah-${ayah.id}">
-                            <span class="ayah-number">${ayah.aya_no}</span>
-                            <div class="ayah-text">${ayah.aya_text}</div>
-                            <div class="ayah-info">
-                                <span>السطر: ${ayah.line_start}-${ayah.line_end}</span>
-                                <span>الصفحة: ${ayah.page}</span>
-                                <span>الجزء: ${ayah.jozz}</span>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-            
-            currentView = 'surahDetail';
+            displayAyahs(surahData);
+
+            // تحميل بيانات التفسير
+            await loadAndDisplayTafseer(surahNumber);
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        
-        // تحميل تفاصيل الصفحة
-        function loadPageDetail(pageNumber) {
-            const pageAyahs = quranData.filter(item => parseInt(item.page) === pageNumber);
-            if (pageAyahs.length === 0) return;
+
+        // عرض الآيات
+        function displayAyahs(surahData) {
+            const ayahsContainer = document.getElementById('ayahsContainer');
+            const verses = surahData.verse;
             
-            const pageInfo = pagesData.find(p => p.page === pageNumber);
-            if (!pageInfo) return;
+            let ayahsHTML = '';
             
-            currentPage = pageNumber;
-            
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'none';
-            document.getElementById('pageDetailView').style.display = 'block';
-            
-            // تحديث العنوان
-            document.getElementById('pageDetailTitle').textContent = `صفحة ${pageNumber}`;
-            
-            // تحديث رأس الصفحة
-            document.getElementById('pageDetailHeader').innerHTML = `
-                <h1>صفحة ${pageNumber}</h1>
-                <div class="page-stats">
-                    <span>الجزء ${pageInfo.juz}</span>
-                    <span>${pageInfo.ayahsCount} آية</span>
-                    <span>${pageInfo.surahs.length} سورة</span>
-                </div>
-            `;
-            
-            // تحديث أزرار التنقل
-            document.getElementById('pageNavigation').innerHTML = `
-                ${pageNumber > 1 ? `
-                    <button class="control-btn" onclick="loadPageDetail(${pageNumber - 1})">
-                        <i class="fas fa-arrow-left"></i> الصفحة السابقة
-                    </button>
-                ` : ''}
-                <button class="control-btn" onclick="scrollToTop()">
-                    <i class="fas fa-arrow-up"></i> الانتقال للأعلى
-                </button>
-                ${pageNumber < totalPages ? `
-                    <button class="control-btn" onclick="loadPageDetail(${pageNumber + 1})">
-                        الصفحة التالية <i class="fas fa-arrow-right"></i>
-                    </button>
-                ` : ''}
-            `;
-            
-            // تجميع الآيات حسب السورة
-            const ayahsBySurah = {};
-            pageAyahs.forEach(ayah => {
-                const surahKey = ayah.sura_no;
-                if (!ayahsBySurah[surahKey]) {
-                    ayahsBySurah[surahKey] = {
-                        name: ayah.sura_name_ar,
-                        name_en: ayah.sura_name_en,
-                        ayahs: []
-                    };
+            for (let i = 1; i <= surahData.count; i++) {
+                const verseKey = `verse_${i}`;
+                const verseText = verses[verseKey];
+                
+                if (verseText) {
+                    ayahsHTML += `
+                        <div class="ayah" id="ayah-${i}">
+                            <span class="ayah-number">${i}</span>
+                            ${verseText}
+                        </div>
+                    `;
                 }
-                ayahsBySurah[surahKey].ayahs.push(ayah);
+            }
+            
+            ayahsContainer.innerHTML = ayahsHTML;
+        }
+
+        // تحميل وعرض التفسير
+        async function loadAndDisplayTafseer(surahNumber) {
+            const tafseerData = await loadTafseerData(surahNumber, appState.currentTafseer);
+            
+            // تحديث ألسنة التفسير
+            const tafseerTabs = document.getElementById('tafseerTabs');
+            tafseerTabs.innerHTML = Object.entries(appState.tafaseer).map(([key, tafseer]) => `
+                <div class="tafseer-tab ${key === appState.currentTafseer ? 'active' : ''}" 
+                     onclick="changeTafseer('${key}', ${surahNumber})">
+                    ${tafseer.name}
+                </div>
+            `).join('');
+            
+            // عرض التفسير
+            displayTafseerContent(tafseerData);
+        }
+
+        // تغيير التفسير
+        async function changeTafseer(tafseerName, surahNumber) {
+            appState.currentTafseer = tafseerName;
+            
+            // تحديث الألسنة النشطة
+            document.querySelectorAll('.tafseer-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // تحميل وعرض التفسير الجديد
+            const tafseerData = await loadTafseerData(surahNumber, tafseerName);
+            displayTafseerContent(tafseerData);
+        }
+
+        // عرض محتوى التفسير
+        function displayTafseerContent(tafseerData) {
+            const tafseerContent = document.getElementById('tafseerContent');
+            
+            if (!tafseerData || tafseerData.length === 0) {
+                tafseerContent.innerHTML = '<p style="text-align: center; color: var(--gray-color);">لا يوجد تفسير متوفر لهذه السورة في هذا الكتاب.</p>';
+                return;
+            }
+            
+            // تجميع التفسير حسب الآيات
+            const tafseerByAyah = {};
+            tafseerData.forEach(item => {
+                if (!tafseerByAyah[item.aya]) {
+                    tafseerByAyah[item.aya] = [];
+                }
+                tafseerByAyah[item.aya].push(item.text);
             });
             
-            // عرض الآيات
-            const ayahsContainer = document.getElementById('ayahsContainer');
-            ayahsContainer.innerHTML = Object.keys(ayahsBySurah).map(surahKey => {
-                const surah = ayahsBySurah[surahKey];
-                return `
-                    <div class="ayah-group">
-                        <div class="surah-title">${surah.name} - ${surah.name_en}</div>
-                        ${surah.ayahs.map(ayah => `
-                            <div class="ayah" id="ayah-${ayah.id}">
-                                <span class="ayah-number">${ayah.aya_no}</span>
-                                <div class="ayah-text">${ayah.aya_text}</div>
-                                <div class="ayah-info">
-                                    <span>السطر: ${ayah.line_start}-${ayah.line_end}</span>
-                                    <span>الجزء: ${ayah.jozz}</span>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-            }).join('');
+            // عرض التفسير
+            let tafseerHTML = '';
             
-            currentView = 'pageDetail';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            for (let ayah = 1; ayah <= appState.currentSurah.count; ayah++) {
+                const interpretations = tafseerByAyah[ayah];
+                if (interpretations && interpretations.length > 0) {
+                    tafseerHTML += `
+                        <div class="tafseer-ayah">
+                            <div style="margin-bottom: 10px; color: var(--primary-color); font-weight: bold;">
+                                الآية ${ayah}:
+                            </div>
+                            ${interpretations.map(text => `<p style="margin-bottom: 10px;">${text}</p>`).join('')}
+                        </div>
+                    `;
+                }
+            }
+            
+            tafseerContent.innerHTML = tafseerHTML;
         }
-        
+
+        // تبديل عرض التفسير
+        function toggleTafseer() {
+            const tafseerSection = document.getElementById('tafseerSection');
+            if (tafseerSection.style.display === 'none') {
+                tafseerSection.style.display = 'block';
+                window.scrollTo({
+                    top: tafseerSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            } else {
+                tafseerSection.style.display = 'none';
+            }
+        }
+
         // وظائف مساعدة
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
         function showComingSoon(feature) {
             alert(`ميزة "${feature}" قيد التطوير وسيتم إضافتها قريباً بإذن الله`);
         }
-        
-        function showError(message) {
-            alert(message);
-        }
+
+        // تهيئة الصفحة عند التحميل
+        window.onload = function() {
+            // إضافة تأثير للهيدر
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('mainHeader');
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+            });
+        };
     </script>
 </body>
 </html>
