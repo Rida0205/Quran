@@ -1016,17 +1016,30 @@
             margin-bottom: 5px;
         }
 
-        /* مشغل الصوت */
+        /* مشغل الصوت - تم التعديل */
         .audio-player {
             background-color: white;
             border-radius: var(--border-radius);
             padding: 15px;
             box-shadow: var(--box-shadow);
-            margin-top: 15px;
+            margin: 15px auto;
             display: none;
-            position: sticky;
-            top: 70px;
+            position: relative;
             z-index: 100;
+            max-width: 800px;
+            animation: slideInDown 0.3s ease;
+            border: 1px solid var(--light-gray);
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .audio-player.active {
@@ -1117,6 +1130,14 @@
         .audio-selector-btn.active {
             background: var(--primary-color);
             color: white;
+        }
+
+        /* مشغل الصوت للتلاوات */
+        #recitationAudioPlayer {
+            background: white;
+            color: var(--dark-color);
+            margin: 15px auto;
+            max-width: 800px;
         }
 
         /* التفسير المضمن */
@@ -1603,6 +1624,49 @@
                 --secondary-color: #00251a;
                 --accent-color: #b8860b;
             }
+        }
+
+        /* إشعارات */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideInRight 0.3s ease;
+            box-shadow: var(--box-shadow);
+        }
+
+        .notification-error {
+            background: #e74c3c;
+        }
+
+        .notification-warning {
+            background: #f39c12;
+        }
+
+        .notification-info {
+            background: #3498db;
+        }
+
+        .notification-success {
+            background: #2ecc71;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
         }
     </style>
 </head>
@@ -3031,6 +3095,196 @@
             }).filter(card => card !== '').join('');
         }
         
+        // تحسين وظيفة showAudioPlayer
+        function showAudioPlayer(surahNumber) {
+            const surah = surahsData.find(s => s.number === surahNumber);
+            if (!surah || !surah.audio || surah.audio.length === 0) {
+                showError('لا توجد تلاوات متاحة لهذه السورة');
+                return;
+            }
+            
+            // تصفية التلاوات وإزالة التكرار في أسماء القراء
+            const uniqueAudios = [];
+            const seenReciters = new Set();
+            
+            surah.audio.forEach(audio => {
+                const reciterName = cleanReciterName(audio.reciter?.ar || 'قارئ');
+                if (!seenReciters.has(reciterName) && audio.link) {
+                    seenReciters.add(reciterName);
+                    uniqueAudios.push({
+                        ...audio,
+                        reciter: {
+                            ...audio.reciter,
+                            ar: reciterName
+                        }
+                    });
+                }
+            });
+            
+            if (uniqueAudios.length === 0) {
+                showError('لا توجد تلاوات متاحة لهذه السورة');
+                return;
+            }
+            
+            currentAudioList = uniqueAudios;
+            currentAudioIndex = 0;
+            
+            const audioPlayer = document.getElementById('audioPlayer');
+            const audioTitle = document.getElementById('audioTitle');
+            const audioSelector = document.getElementById('audioSelector');
+            
+            audioTitle.textContent = `تلاوة سورة ${surah.nameAr}`;
+            
+            // إنشاء قائمة التلاوات
+            audioSelector.innerHTML = currentAudioList.map((audio, index) => `
+                <button class="audio-selector-btn ${index === 0 ? 'active' : ''}" 
+                        onclick="selectAudio(${index})">
+                    ${audio.reciter?.ar || 'قارئ'}
+                </button>
+            `).join('');
+            
+            // إخفاء مشغل الصوت القديم أولاً
+            audioPlayer.classList.remove('active');
+            
+            // عرض مشغل الصوت بعد فترة قصيرة
+            setTimeout(() => {
+                audioPlayer.classList.add('active');
+                
+                // التمرير إلى مشغل الصوت
+                audioPlayer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+            
+            // تحميل أول تلاوة
+            loadAudio(0);
+        }
+
+        // تحسين وظيفة loadAudio
+        function loadAudio(index) {
+            if (index < 0 || index >= currentAudioList.length) return;
+            
+            currentAudioIndex = index;
+            
+            // إظهار مؤشر تحميل
+            const audioPlayIcon = document.getElementById('audioPlayIcon');
+            audioPlayIcon.className = 'fas fa-spinner fa-spin';
+            
+            // تحديث أزرار التلاوات النشطة
+            document.querySelectorAll('.audio-selector-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const buttons = document.querySelectorAll('.audio-selector-btn');
+            if (buttons[index]) {
+                buttons[index].classList.add('active');
+            }
+            
+            // إيقاف التلاوة الحالية إذا كانت تعمل
+            if (audioElement) {
+                audioElement.pause();
+                audioElement = null;
+            }
+            
+            // إضافة مؤشر تحميل في الوقت
+            document.getElementById('currentTime').textContent = '0:00';
+            document.getElementById('duration').textContent = '0:00';
+            document.getElementById('audioProgressBar').style.width = '0%';
+            
+            // إنشاء عنصر صوت جديد مع preload
+            const audioUrl = currentAudioList[index].link;
+            audioElement = new Audio();
+            
+            // إعدادات لتحسين الأداء
+            audioElement.preload = 'metadata'; // تحميل البيانات الأساسية فقط
+            audioElement.autobuffer = true;
+            
+            // إعداد مستمعي الأحداث للصوت
+            audioElement.addEventListener('loadstart', function() {
+                console.log('بدأ تحميل الصوت...');
+            });
+            
+            audioElement.addEventListener('loadedmetadata', function() {
+                updateAudioTime();
+                audioPlayIcon.className = 'fas fa-play';
+                console.log('تم تحميل بيانات الصوت');
+            });
+            
+            audioElement.addEventListener('canplaythrough', function() {
+                console.log('يمكن تشغيل الصوت بالكامل');
+            });
+            
+            audioElement.addEventListener('error', function(e) {
+                console.error('خطأ في تحميل الصوت:', e);
+                audioPlayIcon.className = 'fas fa-play';
+                showNotification('حدث خطأ في تحميل التلاوة', 'error');
+            });
+            
+            audioElement.addEventListener('timeupdate', function() {
+                updateAudioProgress();
+                updateAudioTime();
+            });
+            
+            audioElement.addEventListener('ended', function() {
+                isPlaying = false;
+                audioPlayIcon.className = 'fas fa-play';
+            });
+            
+            // بدء تحميل الصوت
+            audioElement.src = audioUrl;
+            
+            // بدء التشغيل تلقائياً عندما يكون جاهزاً
+            audioElement.addEventListener('canplay', function() {
+                if (isPlaying) {
+                    audioElement.play().catch(e => {
+                        console.error('خطأ في التشغيل:', e);
+                        isPlaying = false;
+                        audioPlayIcon.className = 'fas fa-play';
+                    });
+                }
+            });
+            
+            // محاولة تحميل الصوت
+            audioElement.load();
+        }
+
+        // تحديث وظيفة toggleAudio
+        function toggleAudio() {
+            if (!audioElement) return;
+            
+            const audioPlayIcon = document.getElementById('audioPlayIcon');
+            
+            if (isPlaying) {
+                audioElement.pause();
+                audioPlayIcon.className = 'fas fa-play';
+                isPlaying = false;
+            } else {
+                // التحقق من جاهزية الصوت
+                if (audioElement.readyState >= 2) { // HAVE_CURRENT_DATA أو أفضل
+                    audioElement.play().then(() => {
+                        audioPlayIcon.className = 'fas fa-pause';
+                        isPlaying = true;
+                    }).catch(e => {
+                        console.error('خطأ في التشغيل:', e);
+                        showNotification('حدث خطأ في تشغيل التلاوة', 'error');
+                        audioPlayIcon.className = 'fas fa-play';
+                        isPlaying = false;
+                    });
+                } else {
+                    // الصوت ليس جاهزاً بعد، ننتظر
+                    audioPlayIcon.className = 'fas fa-spinner fa-spin';
+                    audioElement.addEventListener('canplay', function onCanPlay() {
+                        audioElement.removeEventListener('canplay', onCanPlay);
+                        audioElement.play().then(() => {
+                            audioPlayIcon.className = 'fas fa-pause';
+                            isPlaying = true;
+                        }).catch(e => {
+                            console.error('خطأ في التشغيل:', e);
+                            audioPlayIcon.className = 'fas fa-play';
+                            isPlaying = false;
+                        });
+                    });
+                }
+            }
+        }
+        
         // تشغيل تلاوة
         function playRecitationAudio(audioUrl, title) {
             // إيقاف أي تلاوة قيد التشغيل
@@ -3039,19 +3293,42 @@
                 recitationAudioElement = null;
             }
             
+            // إظهار مؤشر تحميل
+            const audioPlayIcon = document.getElementById('recitationAudioPlayIcon');
+            audioPlayIcon.className = 'fas fa-spinner fa-spin';
+            
             // إظهار مشغل الصوت
             const audioPlayer = document.getElementById('recitationAudioPlayer');
             const audioTitle = document.getElementById('recitationAudioTitle');
             
             audioTitle.textContent = title;
-            audioPlayer.classList.add('active');
+            
+            // إخفاء ثم إظهار لإعادة التهيئة
+            audioPlayer.classList.remove('active');
+            
+            setTimeout(() => {
+                audioPlayer.classList.add('active');
+                
+                // التمرير إلى مشغل الصوت
+                setTimeout(() => {
+                    audioPlayer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }, 50);
             
             // إنشاء عنصر صوت جديد
-            recitationAudioElement = new Audio(audioUrl);
+            recitationAudioElement = new Audio();
+            recitationAudioElement.preload = 'metadata';
             
             // إعداد مستمعي الأحداث للصوت
             recitationAudioElement.addEventListener('loadedmetadata', function() {
                 updateRecitationAudioTime();
+                audioPlayIcon.className = 'fas fa-play';
+            });
+            
+            recitationAudioElement.addEventListener('error', function(e) {
+                console.error('خطأ في تحميل الصوت:', e);
+                audioPlayIcon.className = 'fas fa-play';
+                showNotification('حدث خطأ في تحميل التلاوة', 'error');
             });
             
             recitationAudioElement.addEventListener('timeupdate', function() {
@@ -3064,28 +3341,68 @@
                 document.getElementById('recitationAudioPlayIcon').className = 'fas fa-play';
             });
             
-            // بدء التشغيل
-            toggleRecitationAudio();
-            
-            // التمرير إلى مشغل الصوت
-            setTimeout(() => {
-                audioPlayer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
+            // تحميل الصوت
+            recitationAudioElement.src = audioUrl;
+            recitationAudioElement.load();
         }
         
         // تبديل تشغيل/إيقاف الصوت للتلاوات
         function toggleRecitationAudio() {
             if (!recitationAudioElement) return;
             
+            const audioPlayIcon = document.getElementById('recitationAudioPlayIcon');
+            
             if (isRecitationPlaying) {
                 recitationAudioElement.pause();
-                document.getElementById('recitationAudioPlayIcon').className = 'fas fa-play';
+                audioPlayIcon.className = 'fas fa-play';
+                isRecitationPlaying = false;
             } else {
-                recitationAudioElement.play();
-                document.getElementById('recitationAudioPlayIcon').className = 'fas fa-pause';
+                // التحقق من جاهزية الصوت
+                if (recitationAudioElement.readyState >= 2) {
+                    recitationAudioElement.play().then(() => {
+                        audioPlayIcon.className = 'fas fa-pause';
+                        isRecitationPlaying = true;
+                    }).catch(e => {
+                        console.error('خطأ في التشغيل:', e);
+                        showNotification('حدث خطأ في تشغيل التلاوة', 'error');
+                        audioPlayIcon.className = 'fas fa-play';
+                        isRecitationPlaying = false;
+                    });
+                } else {
+                    // الصوت ليس جاهزاً بعد، ننتظر
+                    audioPlayIcon.className = 'fas fa-spinner fa-spin';
+                    recitationAudioElement.addEventListener('canplay', function onCanPlay() {
+                        recitationAudioElement.removeEventListener('canplay', onCanPlay);
+                        recitationAudioElement.play().then(() => {
+                            audioPlayIcon.className = 'fas fa-pause';
+                            isRecitationPlaying = true;
+                        }).catch(e => {
+                            console.error('خطأ في التشغيل:', e);
+                            audioPlayIcon.className = 'fas fa-play';
+                            isRecitationPlaying = false;
+                        });
+                    });
+                }
             }
+        }
+        
+        // تحديث شريط التقدم
+        function updateAudioProgress() {
+            if (!audioElement) return;
             
-            isRecitationPlaying = !isRecitationPlaying;
+            const progress = (audioElement.currentTime / audioElement.duration) * 100;
+            document.getElementById('audioProgressBar').style.width = progress + '%';
+        }
+        
+        // تحديث الوقت
+        function updateAudioTime() {
+            if (!audioElement) return;
+            
+            const currentTime = formatTime(audioElement.currentTime);
+            const duration = formatTime(audioElement.duration);
+            
+            document.getElementById('currentTime').textContent = currentTime;
+            document.getElementById('duration').textContent = duration;
         }
         
         // تحديث شريط التقدم للتلاوات
@@ -3107,6 +3424,27 @@
             document.getElementById('recitationDuration').textContent = duration;
         }
         
+        // تنسيق الوقت
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        // اختيار وقت في الصوت
+        function seekAudio(event) {
+            if (!audioElement) return;
+            
+            const progressBar = event.currentTarget;
+            const clickPosition = event.offsetX;
+            const progressBarWidth = progressBar.clientWidth;
+            const percentage = (clickPosition / progressBarWidth) * 100;
+            
+            audioElement.currentTime = (percentage / 100) * audioElement.duration;
+        }
+        
         // اختيار وقت في الصوت للتلاوات
         function seekRecitationAudio(event) {
             if (!recitationAudioElement) return;
@@ -3117,6 +3455,22 @@
             const percentage = (clickPosition / progressBarWidth) * 100;
             
             recitationAudioElement.currentTime = (percentage / 100) * recitationAudioElement.duration;
+        }
+        
+        // اختيار تلاوة
+        function selectAudio(index) {
+            loadAudio(index);
+        }
+        
+        // إغلاق مشغل الصوت
+        function closeAudioPlayer() {
+            if (audioElement) {
+                audioElement.pause();
+                audioElement = null;
+            }
+            
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.classList.remove('active');
         }
         
         // إغلاق مشغل الصوت للتلاوات
@@ -3355,175 +3709,6 @@
             }
         }
         
-        // عرض مشغل الصوت للسور
-        function showAudioPlayer(surahNumber) {
-            const surah = surahsData.find(s => s.number === surahNumber);
-            if (!surah || !surah.audio || surah.audio.length === 0) {
-                showError('لا توجد تلاوات متاحة لهذه السورة');
-                return;
-            }
-            
-            // تصفية التلاوات وإزالة التكرار في أسماء القراء
-            const uniqueAudios = [];
-            const seenReciters = new Set();
-            
-            surah.audio.forEach(audio => {
-                const reciterName = cleanReciterName(audio.reciter?.ar || 'قارئ');
-                if (!seenReciters.has(reciterName)) {
-                    seenReciters.add(reciterName);
-                    uniqueAudios.push({
-                        ...audio,
-                        reciter: {
-                            ...audio.reciter,
-                            ar: reciterName
-                        }
-                    });
-                }
-            });
-            
-            currentAudioList = uniqueAudios;
-            currentAudioIndex = 0;
-            
-            const audioPlayer = document.getElementById('audioPlayer');
-            const audioTitle = document.getElementById('audioTitle');
-            const audioSelector = document.getElementById('audioSelector');
-            
-            audioTitle.textContent = `تلاوة سورة ${surah.nameAr}`;
-            
-            // إنشاء قائمة التلاوات
-            audioSelector.innerHTML = currentAudioList.map((audio, index) => `
-                <button class="audio-selector-btn ${index === 0 ? 'active' : ''}" 
-                        onclick="selectAudio(${index})">
-                    ${audio.reciter?.ar || 'قارئ'}
-                </button>
-            `).join('');
-            
-            // عرض مشغل الصوت
-            audioPlayer.classList.add('active');
-            
-            // تحميل أول تلاوة
-            loadAudio(0);
-            
-            // التمرير إلى مشغل الصوت
-            setTimeout(() => {
-                audioPlayer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
-        }
-        
-        // تحميل تلاوة
-        function loadAudio(index) {
-            if (index < 0 || index >= currentAudioList.length) return;
-            
-            currentAudioIndex = index;
-            
-            // تحديث أزرار التلاوات النشطة
-            document.querySelectorAll('.audio-selector-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            const buttons = document.querySelectorAll('.audio-selector-btn');
-            if (buttons[index]) {
-                buttons[index].classList.add('active');
-            }
-            
-            // إيقاف التلاوة الحالية إذا كانت تعمل
-            if (audioElement) {
-                audioElement.pause();
-                audioElement = null;
-            }
-            
-            // إنشاء عنصر صوت جديد
-            audioElement = new Audio(currentAudioList[index].link);
-            
-            // إعداد مستمعي الأحداث للصوت
-            audioElement.addEventListener('loadedmetadata', function() {
-                updateAudioTime();
-            });
-            
-            audioElement.addEventListener('timeupdate', function() {
-                updateAudioProgress();
-                updateAudioTime();
-            });
-            
-            audioElement.addEventListener('ended', function() {
-                isPlaying = false;
-                document.getElementById('audioPlayIcon').className = 'fas fa-play';
-            });
-            
-            // بدء التشغيل تلقائياً
-            toggleAudio();
-        }
-        
-        // تبديل تشغيل/إيقاف الصوت
-        function toggleAudio() {
-            if (!audioElement) return;
-            
-            if (isPlaying) {
-                audioElement.pause();
-                document.getElementById('audioPlayIcon').className = 'fas fa-play';
-            } else {
-                audioElement.play();
-                document.getElementById('audioPlayIcon').className = 'fas fa-pause';
-            }
-            
-            isPlaying = !isPlaying;
-        }
-        
-        // تحديث شريط التقدم
-        function updateAudioProgress() {
-            if (!audioElement) return;
-            
-            const progress = (audioElement.currentTime / audioElement.duration) * 100;
-            document.getElementById('audioProgressBar').style.width = progress + '%';
-        }
-        
-        // تحديث الوقت
-        function updateAudioTime() {
-            if (!audioElement) return;
-            
-            const currentTime = formatTime(audioElement.currentTime);
-            const duration = formatTime(audioElement.duration);
-            
-            document.getElementById('currentTime').textContent = currentTime;
-            document.getElementById('duration').textContent = duration;
-        }
-        
-        // تنسيق الوقت
-        function formatTime(seconds) {
-            if (isNaN(seconds)) return '0:00';
-            
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs.toString().padStart(2, '0')}`;
-        }
-        
-        // اختيار وقت في الصوت
-        function seekAudio(event) {
-            if (!audioElement) return;
-            
-            const progressBar = event.currentTarget;
-            const clickPosition = event.offsetX;
-            const progressBarWidth = progressBar.clientWidth;
-            const percentage = (clickPosition / progressBarWidth) * 100;
-            
-            audioElement.currentTime = (percentage / 100) * audioElement.duration;
-        }
-        
-        // اختيار تلاوة
-        function selectAudio(index) {
-            loadAudio(index);
-        }
-        
-        // إغلاق مشغل الصوت
-        function closeAudioPlayer() {
-            if (audioElement) {
-                audioElement.pause();
-                audioElement = null;
-            }
-            
-            const audioPlayer = document.getElementById('audioPlayer');
-            audioPlayer.classList.remove('active');
-        }
-        
         // وظائف مساعدة
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -3535,6 +3720,34 @@
         
         function showError(message) {
             alert(message);
+        }
+        
+        // إظهار إشعار
+        function showNotification(message, type = 'info') {
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.2rem; padding: 0;">×</button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.style.animation = 'slideOutRight 0.3s ease';
+                    setTimeout(() => {
+                        if (notification.parentElement) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }
+            }, 3000);
         }
     </script>
 </body>
