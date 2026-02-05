@@ -1851,7 +1851,7 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
- <script>
+    <script>
         // بيانات التطبيق
         let quranData = [];
         let surahsData = [];
@@ -1867,8 +1867,6 @@
         let currentFilter = 'all';
         let currentAudio = null;
         let currentTafseer = 'muyassar';
-        let searchOption = 'ayah';
-        let searchResults = [];
         
         // متغيرات مشغل الصوت
         let audioElement = null;
@@ -1923,7 +1921,7 @@
             if (surahsData.length > 0) {
                 loadSurahData(1);
             }
-        });
+        });;
         
         // معالجة توجيه URL
         function handleURLRouting() {
