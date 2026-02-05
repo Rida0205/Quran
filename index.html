@@ -5,40 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DEENWAY Quran: القرآن الكريم كاملاً مع التفسير والتلاوة">
     
-    <!-- SEO Meta Tags -->
     <title>DEENWAY Quran | القرآن الكريم كاملاً</title>
-    <meta name="title" content="DEENWAY Quran | القرآن الكريم كاملاً">
-    <meta name="description" content="القرآن الكريم كاملاً مع التفسير، التلاوة، والتحفيظ">
-    <meta name="keywords" content="القرآن الكريم, تفسير القرآن, تلاوة القرآن, تحفيظ القرآن, المصحف الشريف, آيات القرآن, سور القرآن">
-    <meta property="og:title" content="DEENWAY Quran | القرآن الكريم كاملاً">
-    <meta property="og:description" content="القرآن الكريم كاملاً مع التفسير، التلاوة، والتحفيظ">
-    <meta property="og:url" content="https://quran.ondeenway.org">
-    <meta property="og:type" content="website">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://blogger.googleusercontent.com/img/a/AVvXsEiqV8QiI-kiTFfd7Aqm5-JjxGOrxYPRJ568gGkeMVQ5pe6EJLyQb77iaztmC7pFSTa0UglxZeKunFA-nlk6kpw1U8_GICQTG6096qeCqxTG3PdBtg5Jdt67b7e2NrgDglKyQE-CzdSLkDQk2PP6Vp1hmcf8nB1ICh4GgYhNAFtl8nbAbKZcV54UpjHwfbVB">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "DEENWAY Quran",
-      "alternateName": "القرآن الكريم كاملاً",
-      "url": "https://quran.ondeenway.org",
-      "description": "القرآن الكريم كاملاً مع التفسير، التلاوة، والتحفيظ",
-      "publisher": {
-        "@type": "Organization",
-        "name": "DEENWAY",
-        "url": "https://www.ondeenway.org"
-      },
-      "inLanguage": "ar"
-    }
-    </script>
-    
-    <!-- رابط الموقع الأم -->
-    <link rel="canonical" href="https://quran.ondeenway.org">
-    <link rel="alternate" hreflang="ar" href="https://quran.ondeenway.org">
     
     <!-- الخطوط -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,36 +17,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* CSS Reset وتحسينات عامة */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* --- CSS Reset & Variables --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-color: #1a5f4b;
             --secondary-color: #0d3b2e;
             --accent-color: #d4af37;
-            --accent-light: #f2e8c9;
             --light-color: #f8f9fa;
             --dark-color: #1a2c3a;
             --gray-color: #5d6d7e;
             --light-gray: #f1f3f5;
             --border-radius: 12px;
             --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            --transition: all 0.4s ease;
+            --transition: all 0.3s ease;
             --hero-gradient: linear-gradient(135deg, #1a5f4b 0%, #0d3b2e 100%);
-            --quran-gradient: linear-gradient(135deg, #1a5f4b 0%, #2d7d63 100%);
-            --recitation-gradient: linear-gradient(135deg, #4a69bd 0%, #6a89cc 100%);
-            --memorization-gradient: linear-gradient(135deg, #06d6a0 0%, #1a936f 100%);
-            --tafseer-gradient: linear-gradient(135deg, #8b5a2b 0%, #d4af37 100%);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
+        html { scroll-behavior: smooth; }
+        
         body {
             font-family: 'Cairo', 'Tajawal', sans-serif;
             font-size: 18px;
@@ -88,1912 +46,556 @@
             overflow-x: hidden;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: var(--secondary-color);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--border-radius);
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Tajawal', sans-serif;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-        }
-
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: var(--primary-color); transition: var(--transition); }
+        ul { list-style: none; }
+        
+        h1, h2, h3, h4 { font-family: 'Tajawal', sans-serif; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; color: var(--dark-color); }
+        p { margin-bottom: 1.5rem; }
+        
+        .section { padding: 80px 0; min-height: 60vh; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-title { font-size: 2.5rem; position: relative; display: inline-block; margin-bottom: 1.5rem; color: var(--dark-color); }
         .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 5px;
+            content: ''; position: absolute; width: 80px; height: 5px;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            bottom: -15px;
-            right: 50%;
-            transform: translateX(50%);
-            border-radius: 5px;
+            bottom: -15px; right: 50%; transform: translateX(50%); border-radius: 5px;
         }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray-color);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .highlight {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
+        /* --- Components --- */
         .btn {
-            display: inline-block;
-            padding: 14px 35px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
+            display: inline-block; padding: 12px 30px; border-radius: var(--border-radius);
+            font-weight: 600; cursor: pointer; transition: var(--transition); border: none;
+            text-align: center; font-family: 'Cairo', sans-serif;
+        }
+        .btn-primary { background: var(--primary-color); color: white; }
+        .btn-primary:hover { background: var(--secondary-color); transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); }
+        .btn-outline:hover { background: var(--primary-color); color: white; }
+
+        .card {
+            background: white; border-radius: var(--border-radius); padding: 30px;
+            box-shadow: var(--box-shadow); border: 1px solid var(--light-gray);
             transition: var(--transition);
-            border: none;
-            text-align: center;
         }
 
-        .btn-primary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        /* الهيدر */
+        /* --- Header --- */
         .main-header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 15px 0;
-            backdrop-filter: blur(10px);
-            transform: translateY(0);
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 15px 0; backdrop-filter: blur(10px);
         }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo h1 { font-size: 1.8rem; color: var(--dark-color); margin: 0; font-family: 'El Messiri'; }
+        .logo span { color: var(--primary-color); }
 
-        .main-header.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-            color: var(--dark-color);
-        }
-
-        .logo-highlight {
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .logo-highlight::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), transparent);
-            bottom: -2px;
-            right: 0;
-        }
-
-        .tagline {
-            font-size: 0.9rem;
-            color: var(--gray-color);
-            margin-bottom: 0;
-            font-style: italic;
-        }
-
-        /* البانر الرئيسي */
+        /* --- Hero --- */
         .hero {
-            background: var(--hero-gradient);
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
+            background: var(--hero-gradient); color: white; padding: 140px 0 80px;
+            text-align: center; margin-bottom: 40px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;
+        }
+        .hero h2 { font-size: 3rem; color: white; margin-bottom: 1rem; font-family: 'Amiri'; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto 30px; }
+
+        /* --- Grid Layouts --- */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .grid-5 { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+
+        /* --- Feature Cards --- */
+        .feature-card {
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            padding: 40px 20px; cursor: pointer;
+        }
+        .feature-card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+        .feature-icon {
+            width: 80px; height: 80px; background: rgba(26, 95, 75, 0.1); color: var(--primary-color);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; margin-bottom: 20px;
+        }
+        .status-badge {
+            background-color: var(--gray-color); color: white; padding: 5px 15px;
+            border-radius: 20px; font-size: 0.8rem; margin-top: 10px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        /* --- Surah List --- */
+        .surah-card {
+            display: flex; align-items: center; padding: 20px; cursor: pointer;
+            position: relative; overflow: hidden;
         }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+        .surah-card:hover { background-color: rgba(26, 95, 75, 0.03); }
+        .surah-card::before {
+            content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 5px;
+            background: var(--primary-color); opacity: 0; transition: var(--transition);
         }
-
-        .hero-title {
-            font-family: 'El Messiri', 'Tajawal', sans-serif;
-            font-size: 2.8rem;
-            color: white;
-            margin-bottom: 2rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            font-weight: 600;
-            line-height: 1.4;
-            padding: 0 20px;
+        .surah-card:hover::before { opacity: 1; }
+        .surah-number {
+            background: var(--primary-color); color: white; width: 45px; height: 45px;
+            display: flex; align-items: center; justify-content: center; font-weight: bold;
+            border-radius: 10px; margin-left: 20px; font-family: 'Amiri'; flex-shrink: 0;
         }
+        .surah-info h3 { margin: 0; font-size: 1.3rem; }
+        .surah-info span { font-size: 0.9rem; color: var(--gray-color); }
+        .surah-meta { margin-right: auto; text-align: left; }
+        .surah-meta div { font-size: 0.8rem; color: var(--accent-color); font-weight: bold; }
 
-        /* أقسام القرآن */
-        .sections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+        /* --- Reader View --- */
+        .reader-container { padding-top: 100px; }
+        .reader-controls {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;
+            background: white; padding: 15px; border-radius: var(--border-radius); box-shadow: var(--box-shadow);
         }
-
-        .section-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            border: 1px solid var(--light-gray);
-            text-align: center;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .section-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border-color: var(--primary-color);
-        }
-
-        .section-icon {
-            background: linear-gradient(135deg, rgba(26, 95, 75, 0.1) 0%, rgba(13, 59, 46, 0.1) 100%);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: var(--primary-color);
-            font-size: 1.8rem;
-        }
-
-        .section-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
-
-        .section-card p {
-            color: var(--gray-color);
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-
-        .section-count {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* صفحة القرآن */
-        .quran-page {
-            padding: 60px 0;
-            min-height: 70vh;
-        }
-
-        .quran-header {
-            background: var(--quran-gradient);
-            color: white;
-            padding: 50px 0;
-            border-radius: var(--border-radius);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .quran-header h1 {
-            color: white;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
-
-        .quran-header .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* صفحة الصفحات */
-        .pages-container {
-            background-color: #f8f5e6;
-        }
-
-        .pages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .page-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 25px;
-            box-shadow: var(--box-shadow);
-            border-right: 4px solid var(--primary-color);
-            transition: var(--transition);
-            border: 1px solid var(--light-gray);
-            text-align: center;
-            cursor: pointer;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .page-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .page-number {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .juz-badge {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-
-        .page-info {
-            color: var(--gray-color);
-            font-size: 0.9rem;
-            margin-top: 10px;
-            line-height: 1.5;
-        }
-
-        /* صفحة تفاصيل الصفحة */
-        .page-detail {
-            background-color: #f8f5e6;
-            min-height: 100vh;
-            padding: 100px 0 60px;
-        }
-
-        .page-detail-header {
-            background: var(--quran-gradient);
-            color: white;
-            padding: 40px;
-            border-radius: var(--border-radius);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .page-detail-header h1 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .page-stats {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .page-stats span {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* آيات القرآن */
-        .ayahs-container {
-            background-color: white;
-            padding: 40px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            line-height: 1.8;
-            font-size: 1.1rem;
-            border: 1px solid var(--light-gray);
-            margin-bottom: 40px;
-        }
-
-        .ayah-group {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .surah-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            font-family: 'Amiri', serif;
-            padding-right: 15px;
-            border-right: 4px solid var(--accent-color);
-        }
-
+        
         .ayah {
-            font-family: 'Amiri', 'Lateef', serif;
-            font-size: 2rem;
-            line-height: 2.5;
-            text-align: justify;
-            margin-bottom: 25px;
-            color: var(--dark-color);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            background-color: #fefefe;
-            position: relative;
-            transition: var(--transition);
-            border-right: 3px solid transparent;
+            font-family: 'Amiri', serif; font-size: 2.2rem; line-height: 2.8;
+            padding: 25px; border-bottom: 1px solid #eee; text-align: justify; position: relative;
         }
-
-        .ayah:hover {
-            background-color: rgba(26, 95, 75, 0.05);
-            border-right-color: var(--accent-light);
+        .ayah:hover { background-color: #fcfcfc; }
+        .ayah-symbol {
+            position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+            color: var(--accent-color); font-size: 2rem; opacity: 0.5;
         }
-
-        .ayah-number {
-            position: absolute;
-            left: 15px;
-            top: 15px;
-            background-color: var(--primary-color);
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 35px;
-            font-size: 1rem;
-            font-family: 'Cairo', sans-serif;
-            font-weight: bold;
-            box-shadow: 0 3px 10px rgba(26, 95, 75, 0.2);
+        .surah-header {
+            text-align: center; padding: 40px 0; border-bottom: 2px solid var(--accent-color); margin-bottom: 40px;
         }
+        .basmalah { font-family: 'Amiri'; font-size: 2rem; color: var(--primary-color); margin-bottom: 20px; display: block; }
 
-        .ayah-text {
-            padding-left: 50px;
-            display: block;
+        /* --- Tafseer Section --- */
+        .tafseer-book-card {
+            border: 1px solid var(--light-gray); border-radius: 8px; padding: 20px;
+            text-align: center; cursor: pointer; transition: var(--transition);
         }
-
-        .ayah-info {
-            font-size: 0.9rem;
-            color: var(--gray-color);
-            margin-top: 10px;
-            padding-right: 15px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+        .tafseer-book-card:hover { border-color: var(--primary-color); background: rgba(26, 95, 75, 0.02); }
+        .tafseer-content { font-size: 1.1rem; line-height: 1.9; color: #333; }
+        .tafseer-ayah-item {
+            background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;
+            border-right: 4px solid var(--accent-color); box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
+        .tafseer-ayah-text { font-family: 'Amiri'; font-size: 1.8rem; color: var(--primary-color); margin-bottom: 15px; }
+        .tafseer-ayah-explanation { color: #444; }
 
-        .ayah-info span {
-            background-color: var(--light-gray);
-            padding: 5px 12px;
-            border-radius: 15px;
+        /* --- Loading Overlay --- */
+        #loadingOverlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white;
+            z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 0.3s;
         }
-
-        /* أدوات التحكم */
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+        .spinner {
+            border: 4px solid #f3f3f3; border-top: 4px solid var(--primary-color);
+            border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 15px;
         }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        .control-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .control-btn {
-            padding: 10px 20px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Cairo', sans-serif;
-            font-weight: 600;
-        }
-
-        .control-btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-family: 'Cairo', 'Tajawal', sans-serif;
-        }
-
-        .back-link:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        /* إحصائيات */
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-            margin-bottom: 40px;
-        }
-
-        .stat-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            border-top: 5px solid var(--primary-color);
-        }
-
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: var(--gray-color);
-            font-size: 0.95rem;
-        }
-
-        /* زر العودة للأعلى */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-            box-shadow: 0 5px 20px rgba(26, 95, 75, 0.3);
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(26, 95, 75, 0.4);
-        }
-
-        /* تأثير التمرير على الهيدر */
-        .header-spacer {
-            height: 70px;
-        }
-
-        /* التفسيرات */
-        .tafseer-container {
-            margin-top: 30px;
-            padding: 25px;
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            border: 1px solid var(--light-gray);
-        }
-
-        .tafseer-selector {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .tafseer-tab {
-            padding: 10px 20px;
-            background-color: var(--light-gray);
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .tafseer-tab.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .tafseer-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--dark-color);
-        }
-
-        .tafseer-content p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        /* المودال */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 30px;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray-color);
-        }
-
-        /* التجاوب مع الشاشات */
-        @media (max-width: 1200px) {
-            .container {
-                max-width: 95%;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 2.3rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            }
-            
-            .ayah {
-                font-size: 1.8rem;
-            }
-        }
-
+        /* --- Utilities --- */
+        .header-spacer { height: 80px; }
+        .hidden { display: none !important; }
+        
         @media (max-width: 768px) {
-            .hero {
-                padding: 120px 0 80px;
-                min-height: 80vh;
-            }
-            
-            .hero-title {
-                font-size: 1.9rem;
-                padding: 0 15px;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .logo h1 {
-                font-size: 1.5rem;
-            }
-            
-            .back-to-top {
-                bottom: 15px;
-                left: 15px;
-                width: 45px;
-                height: 45px;
-            }
-            
-            .sections-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 15px;
-            }
-            
-            .page-card {
-                padding: 20px;
-                min-height: 180px;
-            }
-            
-            .page-number {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
-            }
-            
-            .controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .control-group {
-                justify-content: center;
-            }
-            
-            .ayah {
-                font-size: 1.6rem;
-                padding: 15px;
-            }
-            
-            .ayah-number {
-                width: 30px;
-                height: 30px;
-                line-height: 30px;
-                font-size: 0.9rem;
-                left: 10px;
-                top: 10px;
-            }
-            
-            .ayah-text {
-                padding-left: 40px;
-            }
-            
-            .page-detail-header h1 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .hero {
-                padding: 100px 0 60px;
-            }
-            
-            .hero-title {
-                font-size: 1.7rem;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-            
-            .section {
-                padding: 50px 0;
-            }
-            
-            .section-card {
-                padding: 25px 20px;
-            }
-            
-            .section-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.6rem;
-            }
-            
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-            
-            .page-card {
-                padding: 15px;
-                min-height: 160px;
-            }
-            
-            .page-number {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-            
-            .ayah {
-                font-size: 1.4rem;
-                line-height: 2;
-                padding: 12px;
-            }
-            
-            .ayah-number {
-                width: 25px;
-                height: 25px;
-                line-height: 25px;
-                font-size: 0.8rem;
-            }
-            
-            .ayah-text {
-                padding-left: 35px;
-            }
-            
-            .ayah-info {
-                font-size: 0.8rem;
-                gap: 8px;
-            }
-            
-            .ayah-info span {
-                padding: 4px 10px;
-            }
-            
-            .page-detail-header {
-                padding: 30px 20px;
-            }
-            
-            .page-detail-header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .page-stats {
-                gap: 10px;
-            }
-            
-            .page-stats span {
-                padding: 6px 15px;
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.5rem;
-            }
-            
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-                gap: 12px;
-            }
-            
-            .page-card {
-                min-height: 150px;
-            }
-            
-            .ayah {
-                font-size: 1.3rem;
-                line-height: 1.9;
-            }
-            
-            .surah-title {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .pages-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            }
-            
-            .ayah {
-                font-size: 1.2rem;
-            }
+            .hero h2 { font-size: 2rem; }
+            .ayah { font-size: 1.6rem; padding: 15px; }
+            .grid-4 { grid-template-columns: 1fr 1fr; }
+            .grid-5 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- الهيدر -->
-    <header class="main-header" id="mainHeader">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="/" style="color: inherit; text-decoration: none;">
-                        <h1>DEENWAY <span class="logo-highlight">Quran</span></h1>
-                        <p class="tagline">القرآن الكريم كاملاً مع التفسير</p>
-                    </a>
-                </div>
-            </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingOverlay">
+        <div class="spinner"></div>
+        <h3 id="loadingText" style="color: var(--primary-color);">جاري تحميل التطبيق...</h3>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="#" onclick="app.router('home'); return false;" class="logo">
+                <h1>DEENWAY <span>Quran</span></h1>
+            </a>
         </div>
     </header>
 
-    <!-- مسافة للهيدر الثابت -->
-    <div class="header-spacer"></div>
-
-    <!-- البانر الرئيسي -->
-    <section class="hero" id="heroSection">
-        <div class="container">
-            <div class="hero-content">
-                <h2 class="hero-title">القرآن الكريم كاملاً<br>مع التفسير والتلاوة والتحفيظ</h2>
-                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9); margin-bottom: 40px;">موقع متكامل للقرآن الكريم مع تفسير الآيات، تلاوة كبار القراء، وأدوات التحفيظ</p>
-                <a href="#sections" class="btn btn-primary" id="exploreBtn">ابدأ رحلتك مع القرآن</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- أقسام القرآن -->
-    <section id="sections" class="section" style="background-color: #f8f5e6;">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">أقسام القرآن الكريم</h2>
-                <p class="section-subtitle">استكشف القرآن الكريم من خلال أقسام متخصصة</p>
-            </div>
-            <div class="sections-grid">
-                <a href="#" class="section-card" onclick="loadPagesView()">
-                    <div class="section-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h3>صفحات المصحف</h3>
-                    <p>تصفح القرآن الكريم صفحة صفحة مع الآيات</p>
-                    <span class="section-count">٦٠٤ صفحة</span>
-                </a>
-                
-                <a href="#" class="section-card" onclick="loadJuzView()">
-                    <div class="section-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h3>الأجزاء</h3>
-                    <p>تصفح القرآن الكريم حسب الأجزاء الثلاثين</p>
-                    <span class="section-count">٣٠ جزء</span>
-                </a>
-                
-                <a href="#" class="section-card" onclick="loadSurahView()">
-                    <div class="section-icon">
-                        <i class="fas fa-quran"></i>
-                    </div>
-                    <h3>السور</h3>
-                    <p>تصفح سور القرآن الكريم بالترتيب</p>
-                    <span class="section-count">١١٤ سورة</span>
-                </a>
-                
-                <a href="#" class="section-card" onclick="showComingSoon('البحث في القرآن')">
-                    <div class="section-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>البحث</h3>
-                    <p>ابحث في آيات القرآن الكريم بكلمات أو مواضيع</p>
-                    <span class="section-count">متقدم</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- صفحات القرآن -->
-    <div id="pagesView" style="display: none;">
-        <section class="section pages-container">
-            <div class="container">
-                <div class="controls">
-                    <button class="control-btn" onclick="loadHomeView()">
-                        <i class="fas fa-arrow-right"></i> العودة للرئيسية
-                    </button>
-                    <h3 style="margin: 0;">صفحات المصحف الشريف</h3>
-                    <div class="control-group">
-                        <button class="control-btn" onclick="loadJuzView()">
-                            <i class="fas fa-layer-group"></i> حسب الجزء
-                        </button>
-                        <button class="control-btn" onclick="loadSurahView()">
-                            <i class="fas fa-quran"></i> حسب السورة
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="stats-container" id="statsContainer"></div>
-                
-                <div class="pages-grid" id="pagesGrid"></div>
-                
-                <div style="text-align: center; margin-top: 50px;">
-                    <button class="back-link" onclick="loadHomeView()">
-                        <i class="fas fa-arrow-right"></i> العودة للرئيسية
-                    </button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- صفحة تفاصيل الصفحة -->
-    <div id="pageDetailView" style="display: none;">
-        <section class="page-detail">
-            <div class="container">
-                <div class="controls">
-                    <button class="control-btn" onclick="loadPagesView()">
-                        <i class="fas fa-arrow-right"></i> العودة للصفحات
-                    </button>
-                    <h3 style="margin: 0;" id="pageDetailTitle"></h3>
-                    <div class="control-group" id="pageNavigation"></div>
-                </div>
-                
-                <div class="page-detail-header" id="pageDetailHeader"></div>
-                
-                <div class="ayahs-container" id="ayahsContainer"></div>
-                
-                <!-- قسم التفسيرات -->
-                <div class="tafseer-container" id="tafseerContainer" style="display: none;">
-                    <div class="tafseer-selector" id="tafseerSelector"></div>
-                    <div class="tafseer-content" id="tafseerContent"></div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 40px;">
-                    <button class="back-link" onclick="loadPagesView()">
-                        <i class="fas fa-arrow-right"></i> العودة لقائمة الصفحات
-                    </button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- زر العودة للأعلى -->
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-    <!-- مودال التفسير -->
-    <div class="modal" id="tafseerModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <h3 id="modalTitle">تفسير الآية</h3>
-            <div id="modalContent"></div>
-        </div>
-    </div>
+    <!-- Main Content -->
+    <main id="appContent">
+        <!-- Dynamic Content Injected Here -->
+    </main>
 
     <script>
-        // بيانات التطبيق
-        let surahsData = [];
-        let pagesData = [];
-        let juzData = [];
-        let currentTafseer = 'muyassar'; // التفسير الافتراضي
-        let tafseerData = {}; // بيانات التفاسير
-        
-        // حالة التطبيق
-        let currentView = 'home';
-        let currentPage = 1;
-        let currentSurah = 1;
-        let currentAyah = 1;
+        /**
+         * DEENWAY Quran App Logic
+         */
+        const app = {
+            // بيانات التطبيق
+            data: {
+                surahs: [],      // سيتم تخزين بيانات السور هنا
+                surahsFull: {},  // لتخزين بيانات الآيات الكاملة للسور المحملة (Cache)
+                tafseerCache: {} // لتخزين ملفات التفسير المحملة
+            },
 
-        // قائمة التفاسير
-        const tafseerList = {
-            'muyassar': { name: 'التفسير الميسر', path: 'Tafaseer/ar_muyassar.json' },
-            'sa3dy': { name: 'تفسير السعدي', path: 'Tafaseer/sa3dy.json' },
-            'katheer': { name: 'تفسير ابن كثير', path: 'Tafaseer/katheer.json' },
-            'tabary': { name: 'تفسير الطبري', path: 'Tafaseer/tabary.json' },
-            'qortoby': { name: 'تفسير القرطبي', path: 'Tafaseer/qortoby.json' },
-            'baghawy': { name: 'تفسير البغوي', path: 'Tafaseer/baghawy.json' },
-            'waseet': { name: 'التفسير الوسيط', path: 'Tafaseer/waseet.json' },
-            'e3rab': { name: 'إعراب القرآن', path: 'Tafaseer/e3rab.json' },
-            'ar_ma3any': { name: 'معاني الكلمات', path: 'Tafaseer/ar_ma3any.json' }
-        };
+            // تعريف كتب التفسير كما أرسلتها
+            tafseerBooks: [
+                { id: 'baghawy', name: 'تفسير البغوي' },
+                { id: 'e3rab', name: 'إعراب كلمات القرآن' },
+                { id: 'katheer', name: 'تفسير ابن كثير' },
+                { id: 'qortoby', name: 'تفسير القرطبي' },
+                { id: 'sa3dy', name: 'تفسير السعدي' },
+                { id: 'tabary', name: 'تفسير الطبري' },
+                { id: 'waseet', name: 'التفسير الوسيط' },
+                { id: 'ar_ma3any', name: 'معاني الكلمات' },
+                { id: 'ar_muyassar', name: 'التفسير الميسر' }
+            ],
 
-        // تهيئة التطبيق
-        document.addEventListener('DOMContentLoaded', async function() {
-            await loadMetadata();
-            setupEventListeners();
-        });
-        
-        // تحميل بيانات الميتاداتا
-        async function loadMetadata() {
-            try {
-                // تحميل بيانات السور
-                const surahsResponse = await fetch('quran_metadata/surah.json');
-                surahsData = await surahsResponse.json();
-                
-                // تحميل بيانات الصفحات
-                const pagesResponse = await fetch('quran_metadata/page.json');
-                pagesData = await pagesResponse.json();
-                
-                // تحميل بيانات الأجزاء
-                const juzResponse = await fetch('quran_metadata/juz.json');
-                juzData = await juzResponse.json();
-                
-                // تحميل التفسير الافتراضي
-                await loadTafseerData(currentTafseer);
-                
-                console.log('تم تحميل البيانات:', {
-                    surahs: surahsData.length,
-                    pages: pagesData.length,
-                    juzs: juzData.length
-                });
-            } catch (error) {
-                console.error('خطأ في تحميل البيانات:', error);
-                showError('حدث خطأ في تحميل بيانات القرآن الكريم');
-            }
-        }
-        
-        // تحميل بيانات التفسير
-        async function loadTafseerData(tafseerName) {
-            try {
-                const tafseerInfo = tafseerList[tafseerName];
-                if (!tafseerInfo) return;
-                
-                const response = await fetch(tafseerInfo.path);
-                tafseerData[tafseerName] = await response.json();
-                console.log(`تم تحميل تفسير ${tafseerInfo.name}`);
-            } catch (error) {
-                console.error(`خطأ في تحميل تفسير ${tafseerName}:`, error);
-            }
-        }
-        
-        // تحميل بيانات سورة معينة
-        async function loadSurahData(surahNumber) {
-            try {
-                const response = await fetch(`Quran Suras/surah_${surahNumber}.json`);
-                return await response.json();
-            } catch (error) {
-                console.error(`خطأ في تحميل سورة ${surahNumber}:`, error);
-                return null;
-            }
-        }
-        
-        // إعداد مستمعي الأحداث
-        function setupEventListeners() {
-            // زر العودة للأعلى
-            const backToTopBtn = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('show');
-                } else {
-                    backToTopBtn.classList.remove('show');
+            // المسارات
+            paths: {
+                meta: 'quran_metadata',
+                surahs: 'Quran Suras',
+                tafaseer: 'Tafaseer'
+            },
+
+            // تهيئة التطبيق
+            async init() {
+                try {
+                    this.updateLoading('جاري تحميل الفهارس...');
+                    // تحميل ملف البيانات الوصفية للسور فقط (سريع جداً)
+                    const res = await fetch(`${this.paths.meta}/surah.json`);
+                    if(!res.ok) throw new Error('لا يمكن العثور على ملف surah.json');
+                    this.data.surahs = await res.json();
+
+                    this.updateLoading('جاري تحضير الواجهة...');
+                    this.router('home');
+                    
+                    document.getElementById('loadingOverlay').style.opacity = '0';
+                    setTimeout(() => document.getElementById('loadingOverlay').style.display = 'none', 300);
+
+                } catch (error) {
+                    document.getElementById('loadingText').innerHTML = `<span style="color:red; text-align:center;">خطأ في تحميل البيانات:<br>${error.message}<br><br>تأكد من تشغيل السيرفر المحلي.</span>`;
                 }
-            });
-            
-            backToTopBtn.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            
-            // تأثير التمرير على الهيدر
-            const header = document.getElementById('mainHeader');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
+            },
+
+            updateLoading(text) {
+                document.getElementById('loadingText').innerText = text;
+            },
+
+            // نظام التوجيه البسيط
+            async router(route, param = null) {
+                const container = document.getElementById('appContent');
+                window.scrollTo(0,0);
+
+                if (route === 'home') {
+                    this.renderHome(container);
+                } else if (route === 'surahs') {
+                    this.renderSurahsList(container);
+                } else if (route === 'surah') {
+                    await this.renderSurahReader(container, param);
+                } else if (route === 'tafseer') {
+                    await this.renderTafseerHome(container);
+                } else if (route === 'tafseer-reader') {
+                    await this.renderTafseerReader(container, param); // param = {bookId, surahId}
+                } else if (route === 'recitations') {
+                    this.renderComingSoon(container, 'التلاوات');
                 }
-            });
-            
-            // زر الاستكشاف
-            const exploreBtn = document.getElementById('exploreBtn');
-            
-            exploreBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetSection = document.getElementById('sections');
-                
-                window.scrollTo({
-                    top: targetSection.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            });
-        }
-        
-        // تحميل العرض الرئيسي
-        function loadHomeView() {
-            document.getElementById('heroSection').style.display = 'block';
-            document.getElementById('sections').style.display = 'block';
-            document.getElementById('pagesView').style.display = 'none';
-            document.getElementById('pageDetailView').style.display = 'none';
-            
-            currentView = 'home';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // تحميل عرض الصفحات
-        async function loadPagesView() {
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'block';
-            document.getElementById('pageDetailView').style.display = 'none';
-            
-            await renderPagesView();
-            currentView = 'pages';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // عرض الصفحات
-        async function renderPagesView() {
-            if (!pagesData || pagesData.length === 0) {
-                showError('البيانات غير متوفرة');
-                return;
-            }
-            
-            // عرض الإحصائيات
-            const statsContainer = document.getElementById('statsContainer');
-            statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${pagesData.length}</div>
-                    <div class="stat-label">عدد الصفحات</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${juzData.length}</div>
-                    <div class="stat-label">عدد الأجزاء</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${surahsData.length}</div>
-                    <div class="stat-label">عدد السور</div>
-                </div>
-            `;
-            
-            // عرض الصفحات
-            const pagesGrid = document.getElementById('pagesGrid');
-            pagesGrid.innerHTML = pagesData.map(page => {
-                // البحث عن معلومات الجزء لهذه الصفحة
-                const juzInfo = juzData.find(juz => {
-                    const startPage = juz.page.start;
-                    const endPage = juz.page.end;
-                    return page.index >= startPage && page.index <= endPage;
-                }) || { index: 1 };
-                
-                return `
-                    <div class="page-card" onclick="loadPageDetail(${page.index})">
-                        <div class="page-number">${page.index}</div>
-                        <div class="juz-badge">الجزء ${juzInfo.index}</div>
-                        <div class="page-info">
-                            ${page.sura.start.ar} - ${page.sura.end.ar}<br>
-                            من آية ${page.aya.start} إلى ${page.aya.end}
+            },
+
+            /* --- Views Rendering --- */
+
+            renderHome(container) {
+                container.innerHTML = `
+                    <section class="hero">
+                        <div class="container">
+                            <h2>القرآن الكريم كاملاً<br>مع التفسير والتلاوة</h2>
+                            <p>تصفح القرآن بآيات عربية واضحة، مع تفاسير موثوقة وتلاوات نادرة</p>
+                            <button onclick="app.router('surahs')" class="btn btn-primary" style="background: white; color: var(--primary-color);">تصفح القرآن</button>
                         </div>
-                    </div>
-                `;
-            }).join('');
-        }
-        
-        // تحميل عرض الأجزاء
-        function loadJuzView() {
-            if (!juzData || juzData.length === 0) {
-                showError('البيانات غير متوفرة');
-                return;
-            }
-            
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'block';
-            document.getElementById('pageDetailView').style.display = 'none';
-            
-            // تحديث العنوان
-            const pagesView = document.getElementById('pagesView');
-            const title = pagesView.querySelector('h3');
-            if (title) title.textContent = 'أجزاء القرآن الكريم';
-            
-            // عرض الإحصائيات
-            const statsContainer = document.getElementById('statsContainer');
-            statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${juzData.length}</div>
-                    <div class="stat-label">عدد الأجزاء</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${pagesData.length}</div>
-                    <div class="stat-label">عدد الصفحات</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${surahsData.length}</div>
-                    <div class="stat-label">عدد السور</div>
-                </div>
-            `;
-            
-            // عرض الأجزاء
-            const pagesGrid = document.getElementById('pagesGrid');
-            pagesGrid.innerHTML = juzData.map(juz => {
-                const surahsInJuz = getSurahsInJuz(juz);
-                const surahsText = surahsInJuz.length > 3 
-                    ? `${surahsInJuz.length} سورة` 
-                    : surahsInJuz.map(s => s.titleAr).join('، ');
-                
-                return `
-                    <div class="page-card" onclick="loadJuzPages(${juz.index})">
-                        <div class="page-number">${juz.index}</div>
-                        <div style="font-weight: bold; font-size: 1.1rem; margin-bottom: 5px;">
-                            الجزء ${juz.index}
-                        </div>
-                        <div class="page-info">
-                            ${juz.page.end - juz.page.start + 1} صفحة<br>
-                            ${surahsText}<br>
-                            من ص ${juz.page.start} إلى ص ${juz.page.end}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // تحديث أزرار التحكم
-            const controlGroup = document.querySelector('.control-group');
-            if (controlGroup) {
-                controlGroup.innerHTML = `
-                    <button class="control-btn" onclick="loadPagesView()">
-                        <i class="fas fa-book-open"></i> حسب الصفحات
-                    </button>
-                    <button class="control-btn" onclick="loadSurahView()">
-                        <i class="fas fa-quran"></i> حسب السورة
-                    </button>
-                `;
-            }
-            
-            currentView = 'juz';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // الحصول على السور في الجزء
-        function getSurahsInJuz(juz) {
-            return surahsData.filter(surah => {
-                return surah.juz.some(j => j.index === juz.index);
-            });
-        }
-        
-        // تحميل صفحات الجزء
-        async function loadJuzPages(juzNumber) {
-            const juz = juzData.find(j => j.index === juzNumber);
-            if (!juz) return;
-            
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'block';
-            document.getElementById('pageDetailView').style.display = 'none';
-            
-            // تحديث العنوان
-            const pagesView = document.getElementById('pagesView');
-            const title = pagesView.querySelector('h3');
-            if (title) title.textContent = `صفحات الجزء ${juzNumber}`;
-            
-            // الحصول على صفحات هذا الجزء
-            const juzPages = pagesData.filter(page => 
-                page.index >= juz.page.start && page.index <= juz.page.end
-            );
-            
-            const surahsInJuz = getSurahsInJuz(juz);
-            
-            // عرض الإحصائيات
-            const statsContainer = document.getElementById('statsContainer');
-            statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${juzPages.length}</div>
-                    <div class="stat-label">عدد الصفحات</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${surahsInJuz.length}</div>
-                    <div class="stat-label">عدد السور</div>
-                </div>
-            `;
-            
-            // عرض صفحات الجزء
-            const pagesGrid = document.getElementById('pagesGrid');
-            pagesGrid.innerHTML = juzPages.map(page => {
-                return `
-                    <div class="page-card" onclick="loadPageDetail(${page.index})">
-                        <div class="page-number">${page.index}</div>
-                        <div class="juz-badge">الجزء ${juzNumber}</div>
-                        <div class="page-info">
-                            ${page.sura.start.ar} - ${page.sura.end.ar}<br>
-                            من آية ${page.aya.start} إلى ${page.aya.end}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // تحديث أزرار التحكم
-            const controlGroup = document.querySelector('.control-group');
-            if (controlGroup) {
-                controlGroup.innerHTML = `
-                    <button class="control-btn" onclick="loadJuzView()">
-                        <i class="fas fa-arrow-right"></i> العودة للأجزاء
-                    </button>
-                    ${juzNumber > 1 ? `
-                        <button class="control-btn" onclick="loadJuzPages(${juzNumber - 1})">
-                            <i class="fas fa-arrow-left"></i> الجزء السابق
-                        </button>
-                    ` : ''}
-                    ${juzNumber < 30 ? `
-                        <button class="control-btn" onclick="loadJuzPages(${juzNumber + 1})">
-                            الجزء التالي <i class="fas fa-arrow-right"></i>
-                        </button>
-                    ` : ''}
-                `;
-            }
-        }
-        
-        // تحميل عرض السور
-        function loadSurahView() {
-            if (!surahsData || surahsData.length === 0) {
-                showError('البيانات غير متوفرة');
-                return;
-            }
-            
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'block';
-            document.getElementById('pageDetailView').style.display = 'none';
-            
-            // تحديث العنوان
-            const pagesView = document.getElementById('pagesView');
-            const title = pagesView.querySelector('h3');
-            if (title) title.textContent = 'سور القرآن الكريم';
-            
-            // عرض الإحصائيات
-            const statsContainer = document.getElementById('statsContainer');
-            statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-number">${surahsData.length}</div>
-                    <div class="stat-label">عدد السور</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${surahsData.reduce((sum, surah) => sum + surah.count, 0).toLocaleString()}</div>
-                    <div class="stat-label">عدد الآيات</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">${pagesData.length}</div>
-                    <div class="stat-label">عدد الصفحات</div>
-                </div>
-            `;
-            
-            // عرض السور
-            const pagesGrid = document.getElementById('pagesGrid');
-            pagesGrid.innerHTML = surahsData.map(surah => {
-                const typeBadge = surah.type === 'meccan' ? 
-                    '<span style="background: #e74c3c; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem;">مكية</span>' :
-                    '<span style="background: #3498db; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem;">مدنية</span>';
-                
-                return `
-                    <div class="page-card" onclick="loadSurahAyahs(${surah.index})">
-                        <div class="page-number">${surah.index}</div>
-                        <div style="font-weight: bold; font-size: 1.1rem; margin-bottom: 5px;">
-                            ${surah.titleAr}
-                        </div>
-                        <div style="color: var(--gray-color); font-size: 0.9rem; margin-bottom: 5px;">
-                            ${surah.titleEn}
-                        </div>
-                        <div class="page-info">
-                            ${surah.count} آية<br>
-                            ${typeBadge}<br>
-                            الجزء ${surah.juz[0].index}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // تحديث أزرار التحكم
-            const controlGroup = document.querySelector('.control-group');
-            if (controlGroup) {
-                controlGroup.innerHTML = `
-                    <button class="control-btn" onclick="loadPagesView()">
-                        <i class="fas fa-book-open"></i> حسب الصفحات
-                    </button>
-                    <button class="control-btn" onclick="loadJuzView()">
-                        <i class="fas fa-layer-group"></i> حسب الجزء
-                    </button>
-                `;
-            }
-            
-            currentView = 'surah';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // تحميل آيات السورة
-        async function loadSurahAyahs(surahNumber) {
-            const surah = surahsData.find(s => s.index === surahNumber);
-            if (!surah) return;
-            
-            // تحميل بيانات السورة
-            const surahData = await loadSurahData(surahNumber);
-            if (!surahData) {
-                showError('تعذر تحميل بيانات السورة');
-                return;
-            }
-            
-            currentSurah = surahNumber;
-            
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'none';
-            document.getElementById('pageDetailView').style.display = 'block';
-            
-            // تحديث العنوان
-            document.getElementById('pageDetailTitle').textContent = `سورة ${surah.titleAr}`;
-            
-            // تحديث رأس الصفحة
-            document.getElementById('pageDetailHeader').innerHTML = `
-                <h1>سورة ${surah.titleAr}</h1>
-                <div style="font-size: 1.2rem; margin-bottom: 10px;">${surah.titleEn}</div>
-                <div class="page-stats">
-                    <span>${surah.count} آية</span>
-                    <span>${surah.type === 'meccan' ? 'مكية' : 'مدنية'}</span>
-                    <span>نزلت بعد سورة ${surah.revelationOrder > 1 ? '...' : 'بداية الوحي'}</span>
-                </div>
-            `;
-            
-            // تحديث أزرار التنقل
-            document.getElementById('pageNavigation').innerHTML = `
-                ${surahNumber > 1 ? `
-                    <button class="control-btn" onclick="loadSurahAyahs(${surahNumber - 1})">
-                        <i class="fas fa-arrow-left"></i> السورة السابقة
-                    </button>
-                ` : ''}
-                <button class="control-btn" onclick="loadSurahView()">
-                    <i class="fas fa-arrow-right"></i> العودة للسور
-                </button>
-                ${surahNumber < 114 ? `
-                    <button class="control-btn" onclick="loadSurahAyahs(${surahNumber + 1})">
-                        السورة التالية <i class="fas fa-arrow-right"></i>
-                    </button>
-                ` : ''}
-            `;
-            
-            // عرض الآيات
-            const ayahsContainer = document.getElementById('ayahsContainer');
-            const verses = Object.entries(surahData.verse);
-            
-            ayahsContainer.innerHTML = `
-                <div class="ayah-group">
-                    <div class="surah-title">سورة ${surah.titleAr} - ${surah.titleEn}</div>
-                    ${verses.map(([verseKey, verseText]) => {
-                        const verseNum = parseInt(verseKey.split('_')[1]);
-                        return `
-                            <div class="ayah" id="ayah-${surahNumber}-${verseNum}" onclick="showTafseer(${surahNumber}, ${verseNum})">
-                                <span class="ayah-number">${verseNum}</span>
-                                <div class="ayah-text">${verseText}</div>
-                                <div class="ayah-info">
-                                    <span>${getJuzForAyah(surah, verseNum)}</span>
+                    </section>
+
+                    <section class="section" style="background-color: #fdfdfd;">
+                        <div class="container">
+                            <div class="section-header">
+                                <h2 class="section-title">الخدمات القرآنية</h2>
+                            </div>
+                            <div class="grid-3">
+                                <div class="card feature-card" onclick="app.router('surahs')">
+                                    <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                                    <h3>القرآن الكريم</h3>
+                                    <p>تصفح جميع السور والآيات بوضوح عالي</p>
+                                </div>
+                                <div class="card feature-card" onclick="app.router('tafseer')">
+                                    <div class="feature-icon"><i class="fas fa-book-reader"></i></div>
+                                    <h3>التفسير</h3>
+                                    <p>مكتبة شاملة للتفاسير المعتمدة</p>
+                                </div>
+                                <div class="card feature-card" onclick="app.router('recitations')">
+                                    <div class="feature-icon"><i class="fas fa-music"></i></div>
+                                    <h3>التلاوات</h3>
+                                    <p>استمع لأعذب الأصوات بتلاوات خاشعة</p>
+                                    <span class="status-badge">قيد التطوير</span>
                                 </div>
                             </div>
-                        `;
-                    }).join('')}
-                </div>
-            `;
-            
-            // إعداد قسم التفسيرات
-            setupTafseerSection(surahNumber, 1);
-            
-            currentView = 'surahDetail';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // الحصول على الجزء للآية
-        function getJuzForAyah(surah, ayahNum) {
-            const juzInfo = surah.juz.find(j => {
-                const startVerse = parseInt(j.verse.start.split('_')[1]);
-                const endVerse = parseInt(j.verse.end.split('_')[1]);
-                return ayahNum >= startVerse && ayahNum <= endVerse;
-            });
-            return juzInfo ? `الجزء ${juzInfo.index}` : '';
-        }
-        
-        // تحميل تفاصيل الصفحة
-        async function loadPageDetail(pageNumber) {
-            const page = pagesData.find(p => p.index === pageNumber);
-            if (!page) return;
-            
-            currentPage = pageNumber;
-            
-            document.getElementById('heroSection').style.display = 'none';
-            document.getElementById('sections').style.display = 'none';
-            document.getElementById('pagesView').style.display = 'none';
-            document.getElementById('pageDetailView').style.display = 'block';
-            
-            // تحديث العنوان
-            document.getElementById('pageDetailTitle').textContent = `صفحة ${pageNumber}`;
-            
-            // البحث عن معلومات الجزء لهذه الصفحة
-            const juzInfo = juzData.find(juz => {
-                return pageNumber >= juz.page.start && pageNumber <= juz.page.end;
-            }) || { index: 1 };
-            
-            // تحديث رأس الصفحة
-            document.getElementById('pageDetailHeader').innerHTML = `
-                <h1>صفحة ${pageNumber}</h1>
-                <div class="page-stats">
-                    <span>الجزء ${juzInfo.index}</span>
-                    <span>${page.sura.start.ar} - ${page.sura.end.ar}</span>
-                    <span>من آية ${page.aya.start} إلى ${page.aya.end}</span>
-                </div>
-            `;
-            
-            // تحديث أزرار التنقل
-            document.getElementById('pageNavigation').innerHTML = `
-                ${pageNumber > 1 ? `
-                    <button class="control-btn" onclick="loadPageDetail(${pageNumber - 1})">
-                        <i class="fas fa-arrow-left"></i> الصفحة السابقة
-                    </button>
-                ` : ''}
-                <button class="control-btn" onclick="scrollToTop()">
-                    <i class="fas fa-arrow-up"></i> الانتقال للأعلى
-                </button>
-                ${pageNumber < pagesData.length ? `
-                    <button class="control-btn" onclick="loadPageDetail(${pageNumber + 1})">
-                        الصفحة التالية <i class="fas fa-arrow-right"></i>
-                    </button>
-                ` : ''}
-            `;
-            
-            // تحميل وعرض آيات الصفحة
-            await loadAndDisplayPageAyahs(page);
-            
-            // إعداد قسم التفسيرات
-            setupTafseerSection(page.sura.start.index, page.aya.start);
-            
-            currentView = 'pageDetail';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // تحميل وعرض آيات الصفحة
-        async function loadAndDisplayPageAyahs(page) {
-            const ayahsContainer = document.getElementById('ayahsContainer');
-            ayahsContainer.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin fa-2x"></i><p>جاري تحميل الآيات...</p></div>';
-            
-            try {
-                // تحميل السور الموجودة في الصفحة
-                const startSurah = page.sura.start.index;
-                const endSurah = page.sura.end.index;
-                
-                let allAyahs = [];
-                
-                for (let surahNum = startSurah; surahNum <= endSurah; surahNum++) {
-                    const surahData = await loadSurahData(surahNum);
-                    if (!surahData) continue;
-                    
-                    const surah = surahsData.find(s => s.index === surahNum);
-                    if (!surah) continue;
-                    
-                    // استخراج الآيات المطلوبة من السورة
-                    const verses = Object.entries(surahData.verse)
-                        .filter(([verseKey, verseText]) => {
-                            const verseNum = parseInt(verseKey.split('_')[1]);
-                            // إذا كانت السورة الأولى في الصفحة
-                            if (surahNum === startSurah) {
-                                return verseNum >= page.aya.start;
-                            }
-                            // إذا كانت السورة الأخيرة في الصفحة
-                            else if (surahNum === endSurah) {
-                                return verseNum <= page.aya.end;
-                            }
-                            // السور في الوسط
-                            else {
-                                return true;
-                            }
-                        })
-                        .map(([verseKey, verseText]) => ({
-                            surahNum,
-                            surahName: surah.titleAr,
-                            verseNum: parseInt(verseKey.split('_')[1]),
-                            verseText
-                        }));
-                    
-                    allAyahs.push(...verses);
-                }
-                
-                // عرض الآيات مجمعة حسب السورة
-                const groupedAyahs = groupAyahsBySurah(allAyahs);
-                
-                ayahsContainer.innerHTML = groupedAyahs.map(group => `
-                    <div class="ayah-group">
-                        <div class="surah-title">سورة ${group.surahName}</div>
-                        ${group.ayahs.map(ayah => `
-                            <div class="ayah" id="ayah-${ayah.surahNum}-${ayah.verseNum}" onclick="showTafseer(${ayah.surahNum}, ${ayah.verseNum})">
-                                <span class="ayah-number">${ayah.verseNum}</span>
-                                <div class="ayah-text">${ayah.verseText}</div>
-                                <div class="ayah-info">
-                                    <span>${getJuzForAyah(surahsData.find(s => s.index === ayah.surahNum), ayah.verseNum)}</span>
-                                </div>
-                            </div>
-                        `).join('')}
+                        </div>
+                    </section>
+                `;
+            },
+
+            renderSurahsList(container) {
+                // ترتيب السور حسب الفهرس (1-114) لضمان الترتيب الصحيح
+                const sortedSurahs = [...this.data.surahs].sort((a, b) => a.index - b.index);
+
+                const listHTML = sortedSurahs.map(s => `
+                    <div class="card surah-card" onclick="app.router('surah', ${s.index})">
+                        <div class="surah-number">${s.index}</div>
+                        <div class="surah-info">
+                            <h3>${s.titleAr}</h3>
+                            <span>${s.titleEn}</span>
+                        </div>
+                        <div class="surah-meta">
+                            <div>${s.count} آية</div>
+                            <div style="margin-top: 5px; color: var(--gray-color);">${s.type === 'Meccan' ? 'مكية' : 'مدنية'}</div>
+                        </div>
                     </div>
                 `).join('');
-                
-            } catch (error) {
-                console.error('خطأ في تحميل آيات الصفحة:', error);
-                ayahsContainer.innerHTML = '<div style="text-align: center; padding: 40px; color: #e74c3c;"><i class="fas fa-exclamation-circle fa-2x"></i><p>حدث خطأ في تحميل الآيات</p></div>';
-            }
-        }
-        
-        // تجميع الآيات حسب السورة
-        function groupAyahsBySurah(ayahs) {
-            const groups = [];
-            let currentGroup = null;
-            
-            ayahs.forEach(ayah => {
-                if (!currentGroup || currentGroup.surahNum !== ayah.surahNum) {
-                    if (currentGroup) groups.push(currentGroup);
-                    currentGroup = {
-                        surahNum: ayah.surahNum,
-                        surahName: ayah.surahName,
-                        ayahs: []
-                    };
-                }
-                currentGroup.ayahs.push(ayah);
-            });
-            
-            if (currentGroup) groups.push(currentGroup);
-            return groups;
-        }
-        
-        // إعداد قسم التفسيرات
-        function setupTafseerSection(surahNumber, ayahNumber) {
-            const tafseerContainer = document.getElementById('tafseerContainer');
-            const tafseerSelector = document.getElementById('tafseerSelector');
-            const tafseerContent = document.getElementById('tafseerContent');
-            
-            if (!tafseerData[currentTafseer]) {
-                tafseerContainer.style.display = 'none';
-                return;
-            }
-            
-            tafseerContainer.style.display = 'block';
-            
-            // إنشاء ألسنة التفسيرات
-            tafseerSelector.innerHTML = Object.entries(tafseerList).map(([key, info]) => `
-                <div class="tafseer-tab ${key === currentTafseer ? 'active' : ''}" 
-                     onclick="switchTafseer('${key}', ${surahNumber}, ${ayahNumber})">
-                    ${info.name}
-                </div>
-            `).join('');
-            
-            // تحميل التفسير الحالي
-            loadTafseerForAyah(currentTafseer, surahNumber, ayahNumber);
-        }
-        
-        // تبديل التفسير
-        async function switchTafseer(tafseerName, surahNumber, ayahNumber) {
-            currentTafseer = tafseerName;
-            
-            // إذا لم يكن التفسير محملاً، قم بتحميله
-            if (!tafseerData[tafseerName]) {
-                await loadTafseerData(tafseerName);
-            }
-            
-            // تحديث الألسنة النشطة
-            document.querySelectorAll('.tafseer-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // تحميل التفسير الجديد
-            loadTafseerForAyah(tafseerName, surahNumber, ayahNumber);
-        }
-        
-        // تحميل التفسير لآية معينة
-        function loadTafseerForAyah(tafseerName, surahNumber, ayahNumber) {
-            const tafseerContent = document.getElementById('tafseerContent');
-            
-            if (!tafseerData[tafseerName]) {
-                tafseerContent.innerHTML = '<p style="text-align: center; color: #666;">لم يتم تحميل بيانات هذا التفسير بعد.</p>';
-                return;
-            }
-            
-            const tafseer = tafseerData[tafseerName].find(t => 
-                t.sura === surahNumber && t.aya === ayahNumber
-            );
-            
-            if (tafseer && tafseer.text) {
-                tafseerContent.innerHTML = `
-                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">تفسير الآية ${ayahNumber} من سورة ${surahsData.find(s => s.index === surahNumber).titleAr}</h4>
-                    <p>${tafseer.text}</p>
+
+                container.innerHTML = `
+                    <div class="container reader-container">
+                        <div class="reader-controls">
+                            <button onclick="app.router('home')" class="btn btn-outline"><i class="fas fa-arrow-right"></i> الرئيسية</button>
+                            <h2>فهرس السور</h2>
+                            <div></div>
+                        </div>
+                        <div class="grid-4">
+                            ${listHTML}
+                        </div>
+                    </div>
                 `;
-            } else {
-                tafseerContent.innerHTML = '<p style="text-align: center; color: #666;">لا يوجد تفسير متاح لهذه الآية.</p>';
+            },
+
+            async renderSurahReader(container, surahId) {
+                // إظهار التحميل لأننا سنقوم بجلب ملف السورة
+                document.getElementById('loadingOverlay').style.display = 'flex';
+                document.getElementById('loadingOverlay').style.opacity = '1';
+                this.updateLoading(`جاري تحميل سورة ${surahId}...`);
+
+                try {
+                    // التحقق من الكاش أولاً
+                    if (!this.data.surahsFull[surahId]) {
+                        const res = await fetch(`${this.paths.surahs}/surah_${surahId}.json`);
+                        if (!res.ok) throw new Error('ملف السورة غير موجود');
+                        this.data.surahsFull[surahId] = await res.json();
+                    }
+                    const surahData = this.data.surahsFull[surahId];
+                    const meta = this.data.surahs.find(s => s.index === surahId);
+
+                    // تحويل كائن الآيات إلى مصفوفة
+                    const versesArray = Object.entries(surahData.verse).map(([key, text]) => ({ num: parseInt(key.split('_')[1]), text }));
+
+                    // عرض الآيات
+                    const versesHTML = versesArray.map(v => `
+                        <div class="ayah">
+                            <span class="ayah-symbol">﴿${v.num}﴾</span>
+                            ${v.text}
+                        </div>
+                    `).join('');
+
+                    const showBasmalah = surahId !== 1 && surahId !== 9;
+                    
+                    // أزرار التنقل
+                    const nextBtn = surahId < 114 ? `<button class="btn btn-primary" onclick="app.router('surah', ${surahId + 1})">السورة التالية <i class="fas fa-arrow-left"></i></button>` : '';
+                    const prevBtn = surahId > 1 ? `<button class="btn btn-outline" onclick="app.router('surah', ${surahId - 1})"><i class="fas fa-arrow-right"></i> السابقة</button>` : '';
+
+                    container.innerHTML = `
+                        <div class="container reader-container">
+                            <div class="reader-controls">
+                                <div style="display:flex; gap:10px;">
+                                    <button onclick="app.router('home')" class="btn btn-outline">الرئيسية</button>
+                                    <button onclick="app.router('surahs')" class="btn btn-outline">الفهرس</button>
+                                </div>
+                                <h2 style="margin:0; font-size:1.2rem; color:var(--gray-color);">سورة ${meta.titleAr}</h2>
+                                <div style="display:flex; gap:10px;">
+                                    ${prevBtn}
+                                    ${nextBtn}
+                                </div>
+ </div>
+
+                            <div class="card surah-header">
+                                <h1 style="font-family: 'Amiri'; font-size: 3rem; color: var(--primary-color);">سورة ${meta.titleAr}</h1>
+                                <p style="font-size: 1.2rem; color: var(--gray-color); margin-top: 10px;">${meta.titleEn} • ${meta.count} آية • ${meta.type === 'Meccan' ? 'مكية' : 'مدنية'}</p>
+                            </div>
+
+                            <div class="card" style="padding: 0; overflow: hidden;">
+                                ${showBasmalah ? '<span class="basmalah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span>' : ''}
+                                ${versesHTML}
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 30px;">
+                                ${nextBtn}
+                            </div>
+                        </div>
+                    `;
+                } catch (error) {
+                    container.innerHTML = `<div class="container" style="padding: 50px; text-align: center;">
+                        <h3>حدث خطأ</h3>
+                        <p>${error.message}</p>
+                        <button class="btn btn-primary" onclick="app.router('surahs')">عودة للفهرس</button>
+                    </div>`;
+                } finally {
+                    this.hideLoader();
+                }
+            },
+
+            async renderTafseerHome(container) {
+                const booksHTML = this.tafseerBooks.map(book => `
+                    <div class="tafseer-book-card" onclick="app.selectTafseerBook('${book.id}')">
+                        <i class="fas fa-book-quran" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;"></i>
+                        <h4>${book.name}</h4>
+                    </div>
+                `).join('');
+
+                container.innerHTML = `
+                    <div class="container reader-container">
+                        <div class="reader-controls">
+                            <button onclick="app.router('home')" class="btn btn-outline"><i class="fas fa-arrow-right"></i> الرئيسية</button>
+                            <h2>مكتبة التفاسير</h2>
+                            <div></div>
+                        </div>
+                        <div class="section-header" style="margin-bottom: 30px;">
+                            <h3>اختر كتاب التفسير</h3>
+                            <p>ثم اختر السورة لعرض التفسير</p>
+                        </div>
+                        <div class="grid-4">
+                            ${booksHTML}
+                        </div>
+                    </div>
+                `;
+            },
+
+            // عند اختيار كتاب، نظهر قائمة السور
+            async selectTafseerBook(bookId) {
+                const bookInfo = this.tafseerBooks.find(b => b.id === bookId);
+                const container = document.getElementById('appContent');
+                
+                // استخدام نفس قائمة السور ولكن بتوجيه مختلف
+                const sortedSurahs = [...this.data.surahs].sort((a, b) => a.index - b.index);
+                const listHTML = sortedSurahs.map(s => `
+                    <div class="card surah-card" onclick="app.router('tafseer-reader', {bookId: '${bookId}', surahId: ${s.index}})">
+                        <div class="surah-number">${s.index}</div>
+                        <div class="surah-info">
+                            <h3>${s.titleAr}</h3>
+                            <span>${s.titleEn}</span>
+                        </div>
+                    </div>
+                `).join('');
+
+                container.innerHTML = `
+                    <div class="container reader-container">
+                        <div class="reader-controls">
+                            <button onclick="app.router('tafseer')" class="btn btn-outline"><i class="fas fa-arrow-right"></i> عودة للكتب</button>
+                            <h2>${bookInfo.name}</h2>
+                            <div></div>
+                        </div>
+                        <h3 style="margin-bottom: 20px; text-align: center;">اختر السورة للتفسير</h3>
+                        <div class="grid-4">
+                            ${listHTML}
+                        </div>
+                    </div>
+                `;
+            },
+
+            async renderTafseerReader(container, params) {
+                const { bookId, surahId } = params;
+                const bookInfo = this.tafseerBooks.find(b => b.id === bookId);
+
+                document.getElementById('loadingOverlay').style.display = 'flex';
+                document.getElementById('loadingOverlay').style.opacity = '1';
+                this.updateLoading('جاري تحميل التفسير...');
+
+                try {
+                    // تحميل ملف التفسير الكامل للكتاب (يتم ذلك مرة واحدة فقط لكل كتاب)
+                    if (!this.data.tafseerCache[bookId]) {
+                        const res = await fetch(`${this.paths.tafaseer}/${bookId}.json`);
+                        if (!res.ok) throw new Error('ملف التفسير غير موجود');
+                        this.data.tafseerCache[bookId] = await res.json();
+                    }
+
+                    // تصفية الآيات الخاصة بالسورة المحددة
+                    // نفترض أن بنية الملف هي مصفوفة تحتوي على كائنات
+                    const allTafseer = this.data.tafseerCache[bookId];
+                    // تصفية البيانات حسب رقم السورة (sura)
+                    const surahTafseer = allTafseer.filter(item => item.sura === surahId);
+                    
+                    // ترتيب حسب رقم الآية
+                    surahTafseer.sort((a, b) => a.aya - b.aya);
+
+                    // تحميل نص الآيات للعرض
+                    if (!this.data.surahsFull[surahId]) {
+                        const sRes = await fetch(`${this.paths.surahs}/surah_${surahId}.json`);
+                        this.data.surahsFull[surahId] = await sRes.json();
+                    }
+                    const surahVerses = this.data.surahsFull[surahId].verse;
+
+                    const contentHTML = surahTafseer.map(t => {
+                        const verseKey = `verse_${t.aya}`;
+                        const verseText = surahVerses[verseKey] || '';
+                        return `
+                            <div class="tafseer-ayah-item">
+                                <div class="tafseer-ayah-text">﴿ ${verseText} ﴾ <span style="font-size:1rem; color:var(--accent-color)">${t.aya}</span></div>
+                                <div class="tafseer-ayah-explanation">${t.text}</div>
+                            </div>
+                        `;
+                    }).join('');
+
+                    const meta = this.data.surahs.find(s => s.index === surahId);
+
+                    container.innerHTML = `
+                        <div class="container reader-container">
+                            <div class="reader-controls">
+                                <button onclick="app.selectTafseerBook('${bookId}')" class="btn btn-outline"><i class="fas fa-arrow-right"></i> عودة للسور</button>
+                                <h2 style="margin:0; font-size:1.1rem;">${bookInfo.name} - ${meta.titleAr}</h2>
+                                <div></div>
+                            </div>
+                            
+                            <div class="card surah-header" style="padding: 20px;">
+                                <h1>${meta.titleAr}</h1>
+                                <p>${bookInfo.name}</p>
+                            </div>
+
+                            <div class="tafseer-content">
+                                ${contentHTML}
+                            </div>
+                        </div>
+                    `;
+
+                } catch (error) {
+                    container.innerHTML = `<div class="container" style="padding: 50px; text-align: center;">
+                        <h3>حدث خطأ في تحميل التفسير</h3>
+                        <p>${error.message}</p>
+                        <button class="btn btn-primary" onclick="app.router('tafseer')">عودة</button>
+                    </div>`;
+                } finally {
+                    this.hideLoader();
+                }
+            },
+
+            renderComingSoon(container, title) {
+                container.innerHTML = `
+                    <div class="container" style="text-align: center; padding-top: 100px;">
+                        <i class="fas fa-tools" style="font-size: 5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
+                        <h2>قسم ${title}</h2>
+                        <p>هذا القسم قيد التطوير حالياً وسيتم إضافته قريباً بإذن الله</p>
+                        <button onclick="app.router('home')" class="btn btn-primary" style="margin-top: 20px;">العودة للرئيسية</button>
+                    </div>
+                `;
+            },
+
+            hideLoader() {
+                const loader = document.getElementById('loadingOverlay');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 300);
             }
-        }
-        
-        // عرض التفسير في مودال
-        async function showTafseer(surahNumber, ayahNumber) {
-            currentSurah = surahNumber;
-            currentAyah = ayahNumber;
-            
-            const modal = document.getElementById('tafseerModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContent');
-            
-            const surah = surahsData.find(s => s.index === surahNumber);
-            
-            modalTitle.textContent = `تفسير الآية ${ayahNumber} من سورة ${surah.titleAr}`;
-            
-            // تحميل بيانات السورة لعرض نص الآية
-            const surahData = await loadSurahData(surahNumber);
-            const verseKey = `verse_${ayahNumber}`;
-            const verseText = surahData.verse[verseKey];
-            
-            // عرض نص الآية أولاً
-            modalContent.innerHTML = `
-                <div class="ayah" style="margin-bottom: 20px; font-size: 1.4rem; text-align: center;">
-                    ${verseText}
-                </div>
-                <div class="tafseer-selector" id="modalTafseerSelector"></div>
-                <div id="modalTafseerContent" style="margin-top: 20px;"></div>
-            `;
-            
-            // إنشاء ألسنة التفسيرات للمودال
-            const modalTafseerSelector = document.getElementById('modalTafseerSelector');
-            modalTafseerSelector.innerHTML = Object.entries(tafseerList).map(([key, info]) => `
-                <div class="tafseer-tab ${key === currentTafseer ? 'active' : ''}" 
-                     onclick="loadModalTafseer('${key}', ${surahNumber}, ${ayahNumber})">
-                    ${info.name}
-                </div>
-            `).join('');
-            
-            // تحميل التفسير الحالي
-            loadModalTafseer(currentTafseer, surahNumber, ayahNumber);
-            
-            // عرض المودال
-            modal.style.display = 'flex';
-        }
-        
-        // تحميل التفسير في المودال
-        async function loadModalTafseer(tafseerName, surahNumber, ayahNumber) {
-            // إذا لم يكن التفسير محملاً، قم بتحميله
-            if (!tafseerData[tafseerName]) {
-                await loadTafseerData(tafseerName);
-            }
-            
-            // تحديث الألسنة النشطة
-            document.querySelectorAll('#modalTafseerSelector .tafseer-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // عرض التفسير
-            const modalTafseerContent = document.getElementById('modalTafseerContent');
-            
-            if (!tafseerData[tafseerName]) {
-                modalTafseerContent.innerHTML = '<p style="text-align: center; color: #666;">لم يتم تحميل بيانات هذا التفسير بعد.</p>';
-                return;
-            }
-            
-            const tafseer = tafseerData[tafseerName].find(t => 
-                t.sura === surahNumber && t.aya === ayahNumber
-            );
-            
-            if (tafseer && tafseer.text) {
-                modalTafseerContent.innerHTML = `<p>${tafseer.text}</p>`;
-            } else {
-                modalTafseerContent.innerHTML = '<p style="text-align: center; color: #666;">لا يوجد تفسير متاح لهذه الآية.</p>';
-            }
-        }
-        
-        // إغلاق المودال
-        function closeModal() {
-            document.getElementById('tafseerModal').style.display = 'none';
-        }
-        
-        // وظائف مساعدة
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        function showComingSoon(feature) {
-            alert(`ميزة "${feature}" قيد التطوير وسيتم إضافتها قريباً بإذن الله`);
-        }
-        
-        function showError(message) {
-            alert(message);
-        }
+        };
+
+        // تشغيل التطبيق
+        document.addEventListener('DOMContentLoaded', () => {
+            app.init();
+        });
     </script>
 </body>
 </html>
