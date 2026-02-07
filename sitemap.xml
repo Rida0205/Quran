@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- الصفحة الرئيسية -->
+    <url>
+        <loc>https://quran.ondeenway.org/</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- صفحة قائمة السور -->
+    <url>
+        <loc>https://quran.ondeenway.org/#surah</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- صفحات السور (114 سورة) -->
+    <url>
+        <loc>https://quran.ondeenway.org/#surah/1</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://quran.ondeenway.org/#surah/2</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <!-- ... استمرار لبقية السور حتى 114 -->
+    <url>
+        <loc>https://quran.ondeenway.org/#surah/114</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- صفحة قائمة القراء -->
+    <url>
+        <loc>https://quran.ondeenway.org/#recitation</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- صفحات القراء (يتم إنشاؤها ديناميكياً بناءً على البيانات) -->
+    <!-- ستضاف هنا بناءً على القراء الفعليين في قاعدة البيانات -->
+</urlset>
