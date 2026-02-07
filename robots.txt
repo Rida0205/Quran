@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /#surah
+Allow: /#surah/*
+Allow: /#recitation
+Allow: /#recitation/*
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://quran.ondeenway.org/sitemap.xml
