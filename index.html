@@ -612,13 +612,6 @@
         const tafseerList={'muyassar':{name:'التفسير الميسر',path:'Tafaseer/ar_muyassar.json'},'sa3dy':{name:'تفسير السعدي',path:'Tafaseer/sa3dy.json'},'katheer':{name:'تفسير ابن كثير',path:'Tafaseer/katheer.json'}};
         const reciterColors=['#5b9bd5','#6cb4ee','#4a90d9','#7db8e8','#3d7ec0','#8ec5f0','#5599d0','#72b0e4','#6098d0','#82bce4'];
 
-        // ===== شاشة التحميل =====
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('splashScreen').classList.add('hidden');
-            }, 500);
-        });
-
         // ===== الوضع الليلي =====
         function initTheme(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);updateThemeIcon(t);}
         function toggleTheme(){const t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);updateThemeIcon(t);}
@@ -750,16 +743,12 @@
             audioElement.play().then(()=>{isPlaying=true;updateGlobalPlayBtn();}).catch(()=>{});
         }
 
-        // ===== التهيئة =====
+        // ===== التهيئة - التغيير الوحيد: إخفاء شاشة التحميل بعد تحميل البيانات =====
         document.addEventListener('DOMContentLoaded',async()=>{
             initTheme();
-            const startTime=Date.now();
             await loadQuranData();
-            const elapsed=Date.now()-startTime;
-            const remaining=Math.max(0,2500-elapsed);
-            setTimeout(()=>{
-                document.getElementById('splashScreen').classList.add('hidden');
-            },remaining);
+            // ✅ إخفاء شاشة التحميل مباشرة بعد تحميل البيانات
+            document.getElementById('splashScreen').classList.add('hidden');
             setupEvents();
             handleURLRouting();
             if(surahsData.length>0)loadSurahData(1);
